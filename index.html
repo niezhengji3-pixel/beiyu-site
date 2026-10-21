@@ -89,6 +89,12 @@ section{scroll-margin-top:calc(var(--nav-h) + 12px);position:relative;}
   transition:all .3s var(--ease);background:transparent;font-weight:500;
 }
 .nav-cta:hover{background:var(--ink);color:var(--paper);}
+.lang-btn{
+  font-size:12px;letter-spacing:.16em;font-weight:600;color:var(--ink-soft);
+  border:1px solid var(--line-strong);border-radius:2px;padding:6px 13px;
+  transition:all .3s var(--ease);background:transparent;
+}
+.lang-btn:hover{background:var(--blue);border-color:var(--blue);color:#fff;}
 .burger{display:none;flex-direction:column;gap:5px;padding:8px;z-index:120;}
 .burger span{display:block;width:24px;height:2px;background:var(--ink);transition:all .3s var(--ease);}
 .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
@@ -388,41 +394,42 @@ section{scroll-margin-top:calc(var(--nav-h) + 12px);position:relative;}
       <span class="brand-name"><b>贝屿创意设计工作室</b><span>Beiyu Creative Design Studio</span></span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#home" data-spy="home">首页</a></li>
-      <li><a href="#about" data-spy="about">关于</a></li>
-      <li><a href="#founders" data-spy="founders">创始人</a></li>
-      <li><a href="#works" data-spy="works">作品</a></li>
-      <li><a href="#contact" data-spy="contact">联系</a></li>
+      <li><a href="#home" data-spy="home" data-i18n="nav.home">首页</a></li>
+      <li><a href="#about" data-spy="about" data-i18n="nav.about">关于</a></li>
+      <li><a href="#founders" data-spy="founders" data-i18n="nav.founders">创始人</a></li>
+      <li><a href="#works" data-spy="works" data-i18n="nav.works">作品</a></li>
+      <li><a href="#contact" data-spy="contact" data-i18n="nav.contact">联系</a></li>
     </ul>
-    <a class="nav-cta" href="#contact">合作洽谈</a>
+    <button class="lang-btn" id="langBtn" aria-label="Switch language">EN</button>
+    <a class="nav-cta" href="#contact" data-i18n="nav.cta">合作洽谈</a>
     <button class="burger" id="burger" aria-label="打开菜单"><span></span><span></span><span></span></button>
   </div>
 </header>
 <nav class="mobile-menu" id="mobileMenu">
-  <a href="#home">首页</a>
-  <a href="#about">关于工作室</a>
-  <a href="#founders">创始人</a>
-  <a href="#works">作品</a>
-  <a href="#contact">联系</a>
+  <a href="#home" data-i18n="nav.home">首页</a>
+  <a href="#about" data-i18n="nav.about">关于工作室</a>
+  <a href="#founders" data-i18n="nav.founders">创始人</a>
+  <a href="#works" data-i18n="nav.works">作品</a>
+  <a href="#contact" data-i18n="nav.contact">联系</a>
 </nav>
 
 <!-- ==================== HERO ==================== -->
 <section class="hero" id="home">
   <div class="wrap hero-inner">
     <div>
-      <span class="hero-eyebrow">武汉 · 建筑设计工作室</span>
-      <h1>以设计为<span class="accent">屿</span><br>把想象落成现实</h1>
+      <span class="hero-eyebrow" data-i18n="hero.eyebrow">武汉 · 建筑设计工作室</span>
+      <h1 data-i18n-html="hero.h1">以设计为<span class="accent">屿</span><br>把想象落成现实</h1>
       <div class="hero-sub-en">Beiyu Creative Design Studio</div>
-      <p class="hero-desc">贝屿创意设计工作室，以<b>建筑</b>为基底、以<b>创意</b>为延伸。从方案构思、规划报审、施工图设计到现场配合，覆盖<b>民用建筑 · 工业建筑 · 市政设计 · 文旅设计 · 品牌VI</b>五大板块，为每一块场地找到它自己的形态。</p>
+      <p class="hero-desc" data-i18n-html="hero.desc">贝屿创意设计工作室，以<b>建筑</b>为基底、以<b>创意</b>为延伸。从方案构思、规划报审、施工图设计到现场配合，覆盖<b>文旅设计 · 建筑（景观）设计 · 城市更新旧改 · 品牌VI · 平面设计 · 室内设计</b>六大板块，为每一块场地找到它自己的形态。</p>
       <div class="hero-actions">
-        <a class="btn btn-solid" href="#works">查看作品</a>
-        <a class="btn btn-line" href="#contact">联系合作</a>
+        <a class="btn btn-solid" href="#works" data-i18n="hero.btnWorks">查看作品</a>
+        <a class="btn btn-line" href="#contact" data-i18n="hero.btnContact">联系合作</a>
       </div>
       <div class="hero-stats">
-        <div class="stat"><div class="num">50<small>+</small></div><div class="lbl">参与项目</div></div>
-        <div class="stat"><div class="num">10<small>+</small></div><div class="lbl">方案主创</div></div>
-        <div class="stat"><div class="num">05</div><div class="lbl">业务板块</div></div>
-        <div class="stat"><div class="num">01</div><div class="lbl">全流程服务</div></div>
+        <div class="stat"><div class="num">50<small>+</small></div><div class="lbl" data-i18n="hero.stat1">参与项目</div></div>
+        <div class="stat"><div class="num">10<small>+</small></div><div class="lbl" data-i18n="hero.stat2">方案主创</div></div>
+        <div class="stat"><div class="num">06</div><div class="lbl" data-i18n="hero.stat3">业务板块</div></div>
+        <div class="stat"><div class="num">01</div><div class="lbl" data-i18n="hero.stat4">全流程服务</div></div>
       </div>
     </div>
     <div class="hero-art" id="heroArt" aria-hidden="true"></div>
@@ -435,40 +442,45 @@ section{scroll-margin-top:calc(var(--nav-h) + 12px);position:relative;}
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="idx">01 / ABOUT</span>
-      <h2>关于<em>贝屿</em></h2>
-      <div class="sub">一间以建筑为基底、以创意为延伸的设计工作室</div>
+      <h2 data-i18n-html="about.h2">关于<em>贝屿</em></h2>
+      <div class="sub" data-i18n="about.sub">不驯于地 · 以境为屿</div>
     </div>
     <div class="about-grid">
       <div class="about-copy reveal">
-        <p>贝屿创意设计工作室（<b>BEIYU CREATIVE DESIGN STUDIO</b>）创立于武汉。主创团队深耕建筑设计领域多年，先后经历大型设计院的全流程历练与多类型项目的反复实践，能够独立承担从<b>方案构思、规划报审、施工图设计到后期服务</b>的项目完整周期。</p>
-        <p class="quote">我们相信，好的设计像一座岛屿——在喧嚣中自成一界，有清晰的边界，也有开放的岸线。</p>
-        <p>无论是大体量的产业园区，还是小而美的文旅空间，我们都以同样的严谨与敏感对待：先把场地读懂，再把想象落成图纸，最后让图纸变成可触摸的现实。业务覆盖<b>民用建筑、工业建筑、市政设计、文旅设计与品牌VI</b>五大板块，为业主提供一站式、全流程的创意设计与落地服务。</p>
+        <p data-i18n-html="about.p1">贝屿创意设计工作室（<b>BEIYU CREATIVE DESIGN STUDIO</b>）——不驯于地，以境为屿。贝，取自海：贝壳自古稀少宝贵、难寻珍物，贝之于海，如同你我之于人海，均是芸芸众生，普通却也弥足珍贵。贝，有幸取自两位主创设计师名之同字，私心希望建立自己与世间万物山川湖海的联系，怡然自得，便是“此心安处是吾乡”。团队历经大型设计院全流程历练与多类型项目实践，既能独立驾驭从<b>方案构思、规划报审、施工图设计到后期服务</b>的完整周期，也擅长把严谨的工程逻辑，翻译成松弛而有温度的空间语言。</p>
+        <p class="quote" data-i18n="about.quote">屿，是陆地周围的屿石——涨潮时与地相离，落潮时与地相连，阴阳平衡，自古而然。贝屿，山与海，我们与世间万物：人生沧海一粟，万物取自山与海，也终将归于山海。</p>
+        <p data-i18n-html="about.p2">万物的联系有始有终、循环往复；与山相连或是相离，与海相离或是相连，不必因此刻的孤独羡慕他人的热闹，或许此刻的宁静，亦是日后思来的确幸。无论是大体量的产业园区，还是小而美的文旅空间，我们都以同样的严谨与敏感对待：先把场地读懂，再把想象落成图纸，最后让图纸变成可触摸的现实。业务覆盖<b>文旅设计、建筑（景观）设计、城市更新/旧改、品牌VI、平面设计与室内设计</b>六大板块，为业主提供从策略到落地的一站式创意设计与全流程服务。</p>
       </div>
       <div class="cap-list reveal d1">
         <div class="cap-row">
           <span class="no">01</span>
-          <span><div class="nm">民用建筑设计</div><div class="en">Civil Architecture</div></span>
-          <span class="ds">酒店 · 办公 · 公寓 · 幼儿园 · 住宅</span>
+          <span><div class="nm" data-i18n="about.cap1.nm">文旅设计</div><div class="en">Cultural Tourism</div></span>
+          <span class="ds" data-i18n="about.cap1.ds">民宿 · 营地 · 自然牧场 · 文旅空间营造</span>
         </div>
         <div class="cap-row">
           <span class="no">02</span>
-          <span><div class="nm">工业建筑设计</div><div class="en">Industrial Architecture</div></span>
-          <span class="ds">厂房 · 产业园 · 厂前区 · 乳品/印刷/新材料</span>
+          <span><div class="nm" data-i18n="about.cap2.nm">建筑（景观）设计</div><div class="en">Architecture (Landscape)</div></span>
+          <span class="ds" data-i18n="about.cap2.ds">公建 · 厂房 · 住宅 · 景观规划</span>
         </div>
         <div class="cap-row">
           <span class="no">03</span>
-          <span><div class="nm">市政设计</div><div class="en">Municipal Design</div></span>
-          <span class="ds">道路改造 · 景观提升 · 节点效果图</span>
+          <span><div class="nm" data-i18n="about.cap3.nm">城市更新 / 旧改</div><div class="en">Urban Renewal / Renovation</div></span>
+          <span class="ds" data-i18n="about.cap3.ds">街区更新 · 旧厂房改造 · 市政景观</span>
         </div>
         <div class="cap-row">
           <span class="no">04</span>
-          <span><div class="nm">文旅设计</div><div class="en">Cultural Tourism</div></span>
-          <span class="ds">民宿 · 自然牧场 · 文旅空间营造</span>
+          <span><div class="nm" data-i18n="about.cap4.nm">品牌 VI 设计</div><div class="en">Brand & VI</div></span>
+          <span class="ds" data-i18n="about.cap4.ds">LOGO · 视觉识别系统 · 品牌IP · 文创</span>
         </div>
         <div class="cap-row">
           <span class="no">05</span>
-          <span><div class="nm">品牌 VI 设计</div><div class="en">Brand & VI</div></span>
-          <span class="ds">LOGO · 视觉识别系统 · 品牌IP · 文创</span>
+          <span><div class="nm" data-i18n="about.cap5.nm">平面设计</div><div class="en">Graphic Design</div></span>
+          <span class="ds" data-i18n="about.cap5.ds">海报 · 画册 · 导视 · 包装</span>
+        </div>
+        <div class="cap-row">
+          <span class="no">06</span>
+          <span><div class="nm" data-i18n="about.cap6.nm">室内设计</div><div class="en">Interior Design</div></span>
+          <span class="ds" data-i18n="about.cap6.ds">民宿室内 · 商业空间 · 办公空间</span>
         </div>
       </div>
     </div>
@@ -480,23 +492,23 @@ section{scroll-margin-top:calc(var(--nav-h) + 12px);position:relative;}
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="idx">02 / FOUNDERS</span>
-      <h2>创始人<em>介绍</em></h2>
-      <div class="sub">设计合伙 · 建筑与品牌两条主线</div>
+      <h2 data-i18n-html="founders.h2">创始人<em>介绍</em></h2>
+      <div class="sub" data-i18n="founders.sub">设计合伙 · 建筑与品牌两条主线</div>
     </div>
     <div class="founder-grid">
       <article class="founder-card reveal">
         <div class="avatar"><img src="https://aka.doubaocdn.com/s/8VTD8SR6zs" alt="聂政绩"></div>
         <h3>聂政绩</h3>
-        <div class="role">Leo Nie · 主创建筑师 / 创始人</div>
-        <p class="desc">湖北工业大学建筑学本科、武汉理工大学建筑学硕士。曾任职于中国轻工业武汉设计工程有限责任公司五年，担任建筑设计方案主创，完整走过从方案构思、深化到施工图落地的全流程——从报规报建、专项配合到现场服务，每个环节都了然于胸，擅长在复杂约束中为业主争取最优解。此后转向文旅行业，专注文旅景观与营地的规划与设计，把建筑师的严谨带进自然的松弛里：从柿·Fu青年疗养院的自投自营，到 DunDun Park 自然牧场、南昌鱼目山营地的整体营造，他始终相信——好的设计要先读懂场地，再把想象落成可触摸的现实。</p>
-        <div class="tags"><span>建筑设计</span><span>方案全流程</span><span>施工图设计</span><span>文旅景观营地</span></div>
+        <div class="role" data-i18n="founders.role1">Leo Nie · 主创建筑师 / 创始人</div>
+        <p class="desc" data-i18n="founders.desc1">湖北工业大学建筑学本科、武汉理工大学建筑学硕士。曾任职于中国轻工业武汉设计工程有限责任公司五年，担任建筑设计方案主创，完整走过从方案构思、深化到施工图落地的全流程——从报规报建、专项配合到现场服务，每个环节都了然于胸，擅长在复杂约束中为业主争取最优解。此后转向文旅行业，专注文旅景观与营地的规划与设计，把建筑师的严谨带进自然的松弛里：从柿·Fu青年疗养院的自投自营，到 DunDun Park 自然牧场、南昌鱼目山营地的整体营造，他始终相信——好的设计要先读懂场地，再把想象落成可触摸的现实。</p>
+        <div class="tags"><span data-i18n="founders.tag1">建筑设计</span><span data-i18n="founders.tag2">方案全流程</span><span data-i18n="founders.tag3">施工图设计</span><span data-i18n="founders.tag4">文旅景观营地</span></div>
       </article>
       <article class="founder-card reveal d1">
         <div class="avatar"><img src="https://aka.doubaocdn.com/s/GAdljDhhOU" alt="向贝"></div>
         <h3>向贝</h3>
-        <div class="role">Xiang Bei · 联合创始人 / 品牌视觉</div>
-        <p class="desc">华中科技大学建筑学本硕。曾任职于中信建筑设计研究总院四年，担任建筑设计方案主创，完整涵盖方案设计与施工图设计的全过程，在大型公建与民用建筑的设计实践中沉淀了扎实的工程功底。现于贝屿负责品牌视觉创意与建筑、景观规划设计：专注VI视觉识别系统、品牌IP设计与文旅场景的视觉营造，让空间与品牌形成统一而鲜明的记忆点。从凤栖亭竹构的轻盈舒展，到小熊猫IP在园区里的生根发芽——从一枚LOGO到一套完整的视觉语言，她以细腻的设计感知为每个项目建立独特的气质，让建筑、景观与品牌互为表里。</p>
-        <div class="tags"><span>VI 视觉识别</span><span>品牌 IP</span><span>建筑景观设计</span><span>文旅场景营造</span></div>
+        <div class="role" data-i18n="founders.role2">Xiang Bei · 联合创始人 / 品牌视觉</div>
+        <p class="desc" data-i18n="founders.desc2">华中科技大学建筑学本硕。曾任职于中信建筑设计研究总院四年，担任建筑设计方案主创，完整涵盖方案设计与施工图设计的全过程，在大型公建与民用建筑的设计实践中沉淀了扎实的工程功底。现于贝屿负责品牌视觉创意与建筑、景观规划设计：专注VI视觉识别系统、品牌IP设计与文旅场景的视觉营造，让空间与品牌形成统一而鲜明的记忆点。从凤栖亭竹构的轻盈舒展，到小熊猫IP在园区里的生根发芽——从一枚LOGO到一套完整的视觉语言，她以细腻的设计感知为每个项目建立独特的气质，让建筑、景观与品牌互为表里。</p>
+        <div class="tags"><span data-i18n="founders.tag5">VI 视觉识别</span><span data-i18n="founders.tag6">品牌 IP</span><span data-i18n="founders.tag7">建筑景观设计</span><span data-i18n="founders.tag8">文旅场景营造</span></div>
       </article>
     </div>
   </div>
@@ -507,16 +519,17 @@ section{scroll-margin-top:calc(var(--nav-h) + 12px);position:relative;}
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="idx">03 / WORKS</span>
-      <h2>作品<em>案例</em></h2>
-      <div class="sub">民用建筑 · 工业建筑 · 市政设计 · 文旅设计 · 品牌VI</div>
+      <h2 data-i18n-html="works.h2">作品<em>案例</em></h2>
+      <div class="sub" data-i18n="works.sub">文旅设计 · 建筑（景观）设计 · 城市更新旧改 · 品牌VI · 平面 · 室内</div>
     </div>
     <div class="filter-bar reveal" id="filterBar">
-      <button class="filter-btn active" data-cat="all">全部</button>
-      <button class="filter-btn" data-cat="tourism">文旅设计</button>
-      <button class="filter-btn" data-cat="civil">民用建筑</button>
-      <button class="filter-btn" data-cat="industrial">工业建筑</button>
-      <button class="filter-btn" data-cat="municipal">市政设计</button>
-      <button class="filter-btn" data-cat="vi">品牌VI</button>
+      <button class="filter-btn active" data-cat="all" data-i18n="filter.all">全部</button>
+      <button class="filter-btn" data-cat="tourism" data-i18n="filter.tourism">文旅设计</button>
+      <button class="filter-btn" data-cat="architecture" data-i18n="filter.architecture">建筑（景观）设计</button>
+      <button class="filter-btn" data-cat="urban" data-i18n="filter.urban">城市更新/旧改</button>
+      <button class="filter-btn" data-cat="vi" data-i18n="filter.vi">品牌VI设计</button>
+      <button class="filter-btn" data-cat="graphic" data-i18n="filter.graphic">平面设计</button>
+      <button class="filter-btn" data-cat="interior" data-i18n="filter.interior">室内设计</button>
     </div>
     <div class="grid" id="workGrid"></div>
   </div>
@@ -527,21 +540,21 @@ section{scroll-margin-top:calc(var(--nav-h) + 12px);position:relative;}
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="idx">04 / CONTACT</span>
-      <h2>联系<em>合作</em></h2>
-      <div class="sub">欢迎业主、同行与品牌方前来洽谈</div>
+      <h2 data-i18n-html="contact.h2">联系<em>合作</em></h2>
+      <div class="sub" data-i18n="contact.sub">欢迎业主、同行与品牌方前来洽谈</div>
     </div>
     <div class="contact-grid">
       <div class="contact-copy reveal">
-        <p>每一个项目，都值得被认真对待。无论你是需要一个新厂房、一栋办公楼、一场市政改造，还是一个从零开始的文旅空间或品牌形象——都可以从一次沟通开始。</p>
-        <p class="quote">把场地交给我们，把想象交给我们，其余的部分，交回给你。</p>
-        <p>我们提供从前期咨询、方案设计到落地配合的全流程服务，欢迎随时联系。</p>
+        <p data-i18n="contact.p1">每一个项目，都值得被认真对待。无论你是需要一个新厂房、一栋办公楼、一场市政改造，还是一个从零开始的文旅空间或品牌形象——都可以从一次沟通开始。</p>
+        <p class="quote" data-i18n="contact.quote">把场地交给我们，把想象交给我们，其余的部分，交回给你。</p>
+        <p data-i18n="contact.p2">我们提供从前期咨询、方案设计到落地配合的全流程服务，欢迎随时联系。</p>
       </div>
       <div class="reveal d1">
         <dl class="contact-list">
-          <div class="contact-item"><dt>微信 / 电话</dt><dd><a href="tel:15071264976">150 7126 4976（微信与手机同号）</a></dd></div>
-          <div class="contact-item"><dt>电子邮箱</dt><dd><a href="mailto:373273486@qq.com">373273486@qq.com</a></dd></div>
-          <div class="contact-item"><dt>工作室地址</dt><dd>湖北省武汉市洪山区 · 万科城市之光</dd></div>
-          <div class="contact-item"><dt>合作范围</dt><dd>民用建筑 / 工业建筑 / 市政 / 文旅 / VI</dd></div>
+          <div class="contact-item"><dt data-i18n="contact.dt1">微信 / 电话</dt><dd><a href="tel:15071264976">150 7126 4976（微信与手机同号）</a></dd></div>
+          <div class="contact-item"><dt data-i18n="contact.dt2">电子邮箱</dt><dd><a href="mailto:373273486@qq.com">373273486@qq.com</a></dd></div>
+          <div class="contact-item"><dt data-i18n="contact.dt3">工作室地址</dt><dd data-i18n="contact.addr">湖北省武汉市洪山区 · 万科城市之光</dd></div>
+          <div class="contact-item"><dt data-i18n="contact.dt4">合作范围</dt><dd data-i18n="contact.scope">文旅 / 建筑景观 / 城市更新旧改 / 品牌VI / 平面 / 室内</dd></div>
         </dl>
       </div>
     </div>
@@ -553,7 +566,7 @@ section{scroll-margin-top:calc(var(--nav-h) + 12px);position:relative;}
         <span class="brand-name"><b style="color:var(--paper)">贝屿创意设计工作室</b><span style="color:rgba(245,244,239,.5)">Beiyu Creative Design Studio</span></span>
       </a>
       <div style="text-align:right">
-        <p>© 2026 贝屿创意设计工作室 · 保留所有权利</p>
+        <p data-i18n="footer.rights">© 2026 贝屿创意设计工作室 · 保留所有权利</p>
         <p class="en">Design an island, build a world.</p>
       </div>
     </div>
@@ -593,49 +606,49 @@ section{scroll-margin-top:calc(var(--nav-h) + 12px);position:relative;}
    ============================================================ */
 var PROJECTS = [
   {
-    category:"civil",
+    category:"architecture",
     title:"桂林洁伶总部经济商务中心项目",
     meta:[["业主","桂林洁伶"],["地点","广西 · 桂林"],["时间","2022 — 2024"],["状态","方案设计"]],
     desc:"涵盖办公、酒店、公寓等多业态的总部经济综合体。项目历时两年余，期间根据业主需求不断推演建筑风格，先后形成新中式、现代简约、商业裙楼与拱形艺术等多种方案，在多变的需求中保持对城市界面的审慎回应。",
     images:["https://aka.doubaocdn.com/s/oVB4mOiFMy","https://aka.doubaocdn.com/s/VNXV2ETiOQ","https://aka.doubaocdn.com/s/oxnHq7VAGc","https://aka.doubaocdn.com/s/HC06yok41K"]
   },
   {
-    category:"civil",
+    category:"architecture",
     title:"广德市实验小学北校区附属幼儿园",
     meta:[["项目类型","投标项目 · 主创"],["地点","安徽 · 广德"],["状态","方案设计（获第三名）"]],
     desc:"以「梦乐溪谷」为设计概念——流动丝带状的共享游戏空间，山谷体量的教室空间，让活动场地与景观最大化。作为主创在仅有的14天内独立完成整套投标文件。",
     images:["https://aka.doubaocdn.com/s/HQ40uNMbf3","https://aka.doubaocdn.com/s/6atVeUhmTP","https://aka.doubaocdn.com/s/DvmO9cjcx3"]
   },
   {
-    category:"civil",
+    category:"urban",
     title:"明光仓里咖啡 · 旧厂房改造",
     meta:[["类型","旧建筑改造 · 咖啡文旅空间"],["地点","安徽 · 明光"],["状态","已建成运营"]],
     desc:"以旧厂房为载体的咖啡文旅空间改造：保留木质桁架屋顶与工业结构记忆，通过红色点缀、农具陈设、壁炉与蒲团等元素，植入咖啡休闲与社区公共功能，让工业风与乡村温馨感在同一空间内交融，为老建筑注入新的日常活力。",
     images:["https://aka.doubaocdn.com/s/FVKHpBwukI","https://aka.doubaocdn.com/s/MTMNEwgvwL","https://aka.doubaocdn.com/s/FBU8gNuxn4"]
   },
   {
-    category:"industrial",
+    category:"architecture",
     title:"智能化绿色数字印刷研发生产基地",
     meta:[["业主","湖北恒泰印务有限公司"],["地点","武汉市 · 江夏区"],["时间","2022 — 2024"],["状态","已建成"]],
     desc:"一人完成从方案沟通、规划报审、施工图设计到后期服务的全流程。设计包括一栋四层丙类生产车间（一至三层生产、四层办公）与一栋15层宿舍楼（底层架空，二三层为食堂及活动室）。在用地狭小的条件下将容积率做到2.2，为业主争取最大利益。",
     images:["https://aka.doubaocdn.com/s/7qVgOpLBR8","https://aka.doubaocdn.com/s/6yrocz8Itc","https://aka.doubaocdn.com/s/TWsG3cNIKt"]
   },
   {
-    category:"industrial",
+    category:"architecture",
     title:"汽车内饰件生产项目",
     meta:[["业主","武汉通领沃德有限公司"],["地点","武汉市 · 汉南区"],["时间","2022 — 2023"],["状态","已建成"]],
     desc:"全流程独立完成。设计包括一栋两层生产车间、一栋四层宿舍楼（底层为食堂及活动室）、一栋甲类危险品仓库与两栋门房，合理组织厂区流线与功能分区。",
     images:["https://aka.doubaocdn.com/s/XMxJvU3kMn","https://aka.doubaocdn.com/s/1wwve5Oie0","https://aka.doubaocdn.com/s/juLzrkplJV","https://aka.doubaocdn.com/s/9tCe2kAZBu","https://aka.doubaocdn.com/s/Rl7MHklh3U"]
   },
   {
-    category:"industrial",
+    category:"architecture",
     title:"西安百跃羊奶粉生产基地",
     meta:[["业主","西安百跃集团"],["地点","西安市 · 阎良区"],["时间","2023 — 2024"],["状态","方案阶段"]],
     desc:"乳制品生产基地整体方案设计，统筹厂区生产、仓储与配套建筑的空间组织与立面表达。",
     images:["https://aka.doubaocdn.com/s/2Zrt4753W2","https://aka.doubaocdn.com/s/JXy4nfhJyw","https://aka.doubaocdn.com/s/moJSzToA2H"]
   },
   {
-    category:"industrial",
+    category:"architecture",
     title:"君乐宝华南乳业全产业链一体化基地",
     meta:[["业主","君乐宝"],["地点","广东省 · 江门市"],["时间","2023 — 2024"],["状态","方案阶段"]],
     desc:"面向全产业链一体化的大型乳业基地，从工艺流线到建筑形象进行整体性方案设计。",
@@ -643,56 +656,56 @@ var PROJECTS = [
     images:["https://aka.doubaocdn.com/s/IlGTfHMXZb","https://aka.doubaocdn.com/s/JAMEoaD3JQ","https://aka.doubaocdn.com/s/k8Zf80Mhfq","https://aka.doubaocdn.com/s/WHgfFGhUcw","https://aka.doubaocdn.com/s/Nt0BYPXJJ3","https://aka.doubaocdn.com/s/1YTklM71IT"]
   },
   {
-    category:"industrial",
+    category:"architecture",
     title:"通城研磨产业回归创业（孵化）园",
     meta:[["业主","通城经开投资有限公司"],["地点","咸宁市 · 通城县"]],
     desc:"产业回归创业孵化园区，围绕研磨产业组织厂房、办公与配套空间，营造宜业宜人的园区环境。",
     images:["https://aka.doubaocdn.com/s/ifPuxwwKgu","https://aka.doubaocdn.com/s/lVPVoqxo11"]
   },
   {
-    category:"industrial",
+    category:"architecture",
     title:"金沙河集团总部基地概念方案",
     meta:[["业主","金沙河集团"],["地点","河北省 · 邢台市"],["时间","2023"],["状态","概念方案（未中标）"]],
     desc:"以临水环形主体建筑统领园区，围绕加工车间组织污水处理、展示接待中心、消防站、多功能厅、专家楼、办公研发质检、宿舍、食堂等功能分区，形成高效而具标志性的总部园区形象。",
     images:["https://aka.doubaocdn.com/s/HZqHFwwrzs","https://aka.doubaocdn.com/s/Uec5Xbpbf8","https://aka.doubaocdn.com/s/OyZVpKOYpW"]
   },
   {
-    category:"industrial",
+    category:"architecture",
     title:"承德北牧乳业迁址扩建项目",
     meta:[["业主","承德北牧乳业有限责任公司"],["地点","河北省 · 承德市"]],
     desc:"乳业企业迁址扩建项目，涵盖生产厂房与厂前区配套建筑的整体方案设计。",
     images:["https://aka.doubaocdn.com/s/Y6evPabKnV","https://aka.doubaocdn.com/s/tucGOUHd6Y","https://aka.doubaocdn.com/s/fUZEPoLE77"]
   },
   {
-    category:"industrial",
+    category:"architecture",
     title:"山东阳昇双创产业园 2#车间设计",
     meta:[["地点","山东省 · 聊城市"],["时间","2024 — 2025"],["状态","在建"]],
     desc:"在已有项目用地内新建乳品生产车间，满足日产能300吨的工艺生产线需求：前部为框架结构参观展览及办公研发区域，后方主要为钢结构生产车间。",
     images:["https://aka.doubaocdn.com/s/3jUYcJbxDM","https://aka.doubaocdn.com/s/Sq5pNV9QgS"]
   },
   {
-    category:"industrial",
+    category:"architecture",
     title:"威兴蓝新材料项目",
     meta:[["地点","徐州市 · 沛县"],["时间","2023 — 2025"],["状态","在建"]],
     desc:"新材料产业园区整体方案设计，统筹生产厂房、办公与配套空间的规划与建筑形象。",
     images:["https://aka.doubaocdn.com/s/V9o6UQlNRZ","https://aka.doubaocdn.com/s/oZLpF6pjnh","https://aka.doubaocdn.com/s/skVf7TbVCM"]
   },
   {
-    category:"industrial",
+    category:"architecture",
     title:"青岛可颂食品工厂",
     meta:[["类型","食品工厂 · 方案设计"],["地点","山东 · 青岛"],["状态","方案设计"]],
     desc:"位于青岛的可颂食品工厂项目：以多层生产厂房为主体，统筹车间工艺分区、办公配套与厂前区形象，从人视、街道到鸟瞰多视角呈现现代食品工厂的完整形象与环境关系。",
     images:["https://aka.doubaocdn.com/s/LqVXI4xlyZ","https://aka.doubaocdn.com/s/RzgMVtLJDu","https://aka.doubaocdn.com/s/yJJ53R83ED","https://aka.doubaocdn.com/s/mKDj7PscwD","https://aka.doubaocdn.com/s/8JYUyLpaiU"]
   },
   {
-    category:"municipal",
+    category:"urban",
     title:"市政道路改造效果图系列",
     meta:[["内容","过街通道 · 道路景观提升"],["地点","武汉市"],["时间","2018 年参与"]],
     desc:"东湖路过街通道、喻家湖路华师附中段、光谷大道创业街路口等市政道路改造项目的效果图制作，涵盖道路铺装、绿化布置与设施布局的景观提升设计，以实景对比方式呈现改造前后效果。",
     images:["https://aka.doubaocdn.com/s/rGthJMRwVx","https://aka.doubaocdn.com/s/f7TVGBT80P","https://aka.doubaocdn.com/s/4ZKoyLRWjn","https://aka.doubaocdn.com/s/unslday2ZA"]
   },
   {
-    category:"municipal",
+    category:"urban",
     title:"惠州仲恺惠环街道城市更新",
     meta:[["类型","城市更新 · 街区改造"],["地点","广东 · 惠州（仲恺高新区）"],["面积","约 5.16 万㎡"],["状态","方案设计"]],
     desc:"面向惠州仲恺惠环街道的片区城市更新方案：对老旧街巷与闲置空间进行建筑修缮、立面整治、绿化美化与道路景观重塑，并植入餐饮、休闲等新业态，将杂乱老旧的城郊街区转变为整洁雅致、充满烟火气的休闲街道。",
@@ -733,20 +746,188 @@ var PROJECTS = [
     title:"贝屿视觉识别系统",
     meta:[["内容","LOGO 与品牌基础识别"],["状态","已应用"]],
     desc:"「贝屿」中文标识与「x & N DESIGN」的组合设计：以波浪曲线与几何折线对话，柔与刚、品牌与设计并置，构成简洁现代、易于识别的视觉核心，是贝屿品牌体系的起点。",
-    images:["https://aka.doubaocdn.com/s/IKqUFpP4a7","https://aka.doubaocdn.com/s/42kyAtAsN3"]
+    images:["https://aka.doubaocdn.com/s/IKqUFpP4a7","https://aka.doubaocdn.com/s/51gvHDeV9V"]
   },
   {
     category:"vi",
     title:"小熊猫 IP 形象 · 品牌应用",
     meta:[["内容","RED PANDA 小熊猫IP · 导览 · 三折页 · 文创"],["状态","已应用"]],
     desc:"为 DunDun Park 自然牧场打造的小熊猫品牌IP形象：戴墨镜、端咖啡的「RED PANDA」贯穿园区导视系统、宣传物料与文创产品——从手绘导览地图、入口指示海报、三折页宣传页，到「Mountain Leisure 山野休闲系列」小熊猫毛绒钥匙扣盲盒文创，IP形象渗透进空间体验与品牌周边的每个触点，成为园区最具辨识度的视觉符号。",
-    images:["https://aka.doubaocdn.com/s/SiF9yzZmOP","https://aka.doubaocdn.com/s/2qM1aPVSh2","https://aka.doubaocdn.com/s/u1gQ3xdyYG","https://aka.doubaocdn.com/s/fz2vBgmlTT","https://aka.doubaocdn.com/s/hGneUvdTJ2"]
+    images:["https://aka.doubaocdn.com/s/hveKdv5x83","https://aka.doubaocdn.com/s/tggTFM0VqI","https://aka.doubaocdn.com/s/fuRbezFRrd"]
+  },
+  {
+    category:"interior",
+    title:"柿·Fu青年疗养院 · 室内设计",
+    meta:[["类型","民宿室内 · 自建房改造"],["地点","湖北 · 随州"],["状态","创始人自投自营"]],
+    desc:"柿·Fu青年疗养院的室内整体营造：以藤编、木质、棉麻与大地色系铺陈，侘寂风卧室与公区、柴火灶厨房、电竞房一应俱全——材质天然、氛围松弛，让「疗养」既可以是慢下来，也可以是玩起来。",
+    images:["https://aka.doubaocdn.com/s/8hgj7MQCgN","https://aka.doubaocdn.com/s/Yu4FY6fnMf","https://aka.doubaocdn.com/s/t2wKif9x7O","https://aka.doubaocdn.com/s/oIUM5205Wu"]
+  },
+  {
+    category:"interior",
+    title:"撞色几何风 · 主题卫浴空间",
+    meta:[["内容","撞色瓷砖 · 几何拼接 · 艺术卫浴"],["状态","设计渲染"]],
+    desc:"以高饱和撞色与几何拼接图案为基调的主题卫浴空间设计：艺术感洗手台、撞色几何瓷砖、装饰镜与造型灯具共同营造活泼、明快的卫浴体验，适用于民宿与商业空间打造差异化的客房卫浴。",
+    images:["https://aka.doubaocdn.com/s/WjX7bKtyVw","https://aka.doubaocdn.com/s/GdgV8YK770","https://aka.doubaocdn.com/s/EBrOGGP0fO","https://aka.doubaocdn.com/s/34SK2qFbEz"]
+  },
+  {
+    category:"interior",
+    title:"废墟工业风 · 咖啡厅与休闲空间",
+    meta:[["内容","废墟风咖啡厅 · 民宿休闲区 · RED PANDA 主题"],["状态","设计渲染"]],
+    desc:"叙利亚废墟工业风咖啡厅与休闲空间设计：裸露清水混凝土与红砖肌理、复古金属管道与木质吊扇构成粗犷空间底调，做旧皮革卡座与波斯纹样地毯注入松弛质感；RED PANDA 主题元素细腻融入软装，与民宿青年休闲区、日光 lounge 共同组成完整的生活化场景。",
+    images:["https://aka.doubaocdn.com/s/Qmkcfpi3nF","https://aka.doubaocdn.com/s/DBFlTObV2q","https://aka.doubaocdn.com/s/dkcuR2qRQQ","https://aka.doubaocdn.com/s/svS22ttYe7"]
+  },
+  {
+    category:"graphic",
+    title:"DunDun Park 自然牧场 · 品牌平面设计",
+    meta:[["内容","导览地图 · 导览牌 · 海报 · 票务 · 壁画"],["地点","江西 · 南昌（磨盘山森林公园）"],["状态","已应用"]],
+    desc:"围绕 DunDun Park 自然牧场打造的全套平面物料：园区导览地图、入口导览牌、宣传海报、VIP贵宾票、游客须知、小熊猫卫生间壁画，以及小熊猫、水豚、长鼻浣熊等各动物展区的导视指示牌——统一的卡通治愈风格与 RED PANDA 视觉语言贯穿每个触点，让品牌形象在游园体验中自然生长。",
+    images:["https://aka.doubaocdn.com/s/auJzIM8t9L","https://aka.doubaocdn.com/s/hwnFX79Vhr","https://aka.doubaocdn.com/s/Ntfuxka5nT","https://aka.doubaocdn.com/s/Q3cCjaq4lj","https://aka.doubaocdn.com/s/yFFnDlFU0V","https://aka.doubaocdn.com/s/M4pCEm6sje","https://aka.doubaocdn.com/s/GE5MWxpHjY","https://aka.doubaocdn.com/s/UegyqZhkoF","https://aka.doubaocdn.com/s/1CJa2rrJav","https://aka.doubaocdn.com/s/MVX3Ro1MpO","https://aka.doubaocdn.com/s/NIHDVhyiP4","https://aka.doubaocdn.com/s/GUskCL2ZwW","https://aka.doubaocdn.com/s/FWW1MzU9bz","https://aka.doubaocdn.com/s/5ozeW2IBe8"]
   }
 ];
 
-var CAT_NAMES = {civil:"民用建筑",industrial:"工业建筑",municipal:"市政设计",tourism:"文旅设计",vi:"品牌VI"};
-var CAT_EN    = {civil:"CIVIL",industrial:"INDUSTRIAL",municipal:"MUNICIPAL",tourism:"TOURISM",vi:"BRAND & VI"};
-var CAT_ORDER = {tourism:0,civil:1,industrial:2,municipal:3,vi:4};
+var CAT_NAMES = {tourism:"文旅设计",architecture:"建筑（景观）设计",urban:"城市更新/旧改",vi:"品牌VI设计",graphic:"平面设计",interior:"室内设计"};
+var CAT_EN    = {tourism:"TOURISM",architecture:"ARCHITECTURE",urban:"URBAN RENEWAL",vi:"BRAND & VI",graphic:"GRAPHIC",interior:"INTERIOR"};
+var CAT_ORDER = {tourism:0,architecture:1,urban:2,vi:3,graphic:4,interior:5};
+
+/* ============================================================
+   ★ 中英双语（I18N）
+   - I18N：静态文本字典（zh / en）
+   - PROJECTS_EN：21 个项目的英文标题/简介/元信息
+   - LANG / setLang：语言状态与切换
+   ============================================================ */
+var CAT_NAMES_EN = {tourism:"Cultural Tourism",architecture:"Architecture (Landscape)",urban:"Urban Renewal / Renovation",vi:"Brand & VI",graphic:"Graphic Design",interior:"Interior Design"};
+var I18N = {
+  zh:{
+    "docTitle":"贝屿创意设计工作室 · BEIYU CREATIVE DESIGN STUDIO",
+    "nav.home":"首页","nav.about":"关于","nav.founders":"创始人","nav.works":"作品","nav.contact":"联系","nav.cta":"合作洽谈",
+    "hero.eyebrow":"武汉 · 建筑设计工作室",
+    "hero.h1":"以设计为<span class=\"accent\">屿</span><br>把想象落成现实",
+    "hero.desc":"贝屿创意设计工作室，以<b>建筑</b>为基底、以<b>创意</b>为延伸。从方案构思、规划报审、施工图设计到现场配合，覆盖<b>文旅设计 · 建筑（景观）设计 · 城市更新旧改 · 品牌VI · 平面设计 · 室内设计</b>六大板块，为每一块场地找到它自己的形态。",
+    "hero.btnWorks":"查看作品","hero.btnContact":"联系合作",
+    "hero.stat1":"参与项目","hero.stat2":"方案主创","hero.stat3":"业务板块","hero.stat4":"全流程服务",
+    "about.h2":"关于<em>贝屿</em>","about.sub":"不驯于地 · 以境为屿",
+    "about.p1":"贝屿创意设计工作室（<b>BEIYU CREATIVE DESIGN STUDIO</b>）——不驯于地，以境为屿。贝，取自海：贝壳自古稀少宝贵、难寻珍物，贝之于海，如同你我之于人海，均是芸芸众生，普通却也弥足珍贵。贝，有幸取自两位主创设计师名之同字，私心希望建立自己与世间万物山川湖海的联系，怡然自得，便是“此心安处是吾乡”。团队历经大型设计院全流程历练与多类型项目实践，既能独立驾驭从<b>方案构思、规划报审、施工图设计到后期服务</b>的完整周期，也擅长把严谨的工程逻辑，翻译成松弛而有温度的空间语言。",
+    "about.quote":"屿，是陆地周围的屿石——涨潮时与地相离，落潮时与地相连，阴阳平衡，自古而然。贝屿，山与海，我们与世间万物：人生沧海一粟，万物取自山与海，也终将归于山海。",
+    "about.p2":"万物的联系有始有终、循环往复；与山相连或是相离，与海相离或是相连，不必因此刻的孤独羡慕他人的热闹，或许此刻的宁静，亦是日后思来的确幸。无论是大体量的产业园区，还是小而美的文旅空间，我们都以同样的严谨与敏感对待：先把场地读懂，再把想象落成图纸，最后让图纸变成可触摸的现实。业务覆盖<b>文旅设计、建筑（景观）设计、城市更新/旧改、品牌VI、平面设计与室内设计</b>六大板块，为业主提供从策略到落地的一站式创意设计与全流程服务。",
+    "about.cap1.nm":"文旅设计","about.cap1.ds":"民宿 · 营地 · 自然牧场 · 文旅空间营造",
+    "about.cap2.nm":"建筑（景观）设计","about.cap2.ds":"公建 · 厂房 · 住宅 · 景观规划",
+    "about.cap3.nm":"城市更新 / 旧改","about.cap3.ds":"街区更新 · 旧厂房改造 · 市政景观",
+    "about.cap4.nm":"品牌 VI 设计","about.cap4.ds":"LOGO · 视觉识别系统 · 品牌IP · 文创",
+    "about.cap5.nm":"平面设计","about.cap5.ds":"海报 · 画册 · 导视 · 包装",
+    "about.cap6.nm":"室内设计","about.cap6.ds":"民宿室内 · 商业空间 · 办公空间",
+    "founders.h2":"创始人<em>介绍</em>","founders.sub":"设计合伙 · 建筑与品牌两条主线",
+    "founders.role1":"Leo Nie · 主创建筑师 / 创始人","founders.role2":"Xiang Bei · 联合创始人 / 品牌视觉",
+    "founders.desc1":"湖北工业大学建筑学本科、武汉理工大学建筑学硕士。曾任职于中国轻工业武汉设计工程有限责任公司五年，担任建筑设计方案主创，完整走过从方案构思、深化到施工图落地的全流程——从报规报建、专项配合到现场服务，每个环节都了然于胸，擅长在复杂约束中为业主争取最优解。此后转向文旅行业，专注文旅景观与营地的规划与设计，把建筑师的严谨带进自然的松弛里：从柿·Fu青年疗养院的自投自营，到 DunDun Park 自然牧场、南昌鱼目山营地的整体营造，他始终相信——好的设计要先读懂场地，再把想象落成可触摸的现实。",
+    "founders.desc2":"华中科技大学建筑学本硕。曾任职于中信建筑设计研究总院四年，担任建筑设计方案主创，完整涵盖方案设计与施工图设计的全过程，在大型公建与民用建筑的设计实践中沉淀了扎实的工程功底。现于贝屿负责品牌视觉创意与建筑、景观规划设计：专注VI视觉识别系统、品牌IP设计与文旅场景的视觉营造，让空间与品牌形成统一而鲜明的记忆点。从凤栖亭竹构的轻盈舒展，到小熊猫IP在园区里的生根发芽——从一枚LOGO到一套完整的视觉语言，她以细腻的设计感知为每个项目建立独特的气质，让建筑、景观与品牌互为表里。",
+    "founders.tag1":"建筑设计","founders.tag2":"方案全流程","founders.tag3":"施工图设计","founders.tag4":"文旅景观营地",
+    "founders.tag5":"VI 视觉识别","founders.tag6":"品牌 IP","founders.tag7":"建筑景观设计","founders.tag8":"文旅场景营造",
+    "works.h2":"作品<em>案例</em>","works.sub":"文旅设计 · 建筑（景观）设计 · 城市更新旧改 · 品牌VI · 平面 · 室内",
+    "filter.all":"全部","filter.tourism":"文旅设计","filter.architecture":"建筑（景观）设计","filter.urban":"城市更新/旧改","filter.vi":"品牌VI设计","filter.graphic":"平面设计","filter.interior":"室内设计",
+    "contact.h2":"联系<em>合作</em>","contact.sub":"欢迎业主、同行与品牌方前来洽谈",
+    "contact.p1":"每一个项目，都值得被认真对待。无论你是需要一个新厂房、一栋办公楼、一场市政改造，还是一个从零开始的文旅空间或品牌形象——都可以从一次沟通开始。",
+    "contact.quote":"把场地交给我们，把想象交给我们，其余的部分，交回给你。",
+    "contact.p2":"我们提供从前期咨询、方案设计到落地配合的全流程服务，欢迎随时联系。",
+    "contact.dt1":"微信 / 电话","contact.dt2":"电子邮箱","contact.dt3":"工作室地址","contact.addr":"湖北省武汉市洪山区 · 万科城市之光","contact.dt4":"合作范围","contact.scope":"文旅 / 建筑景观 / 城市更新旧改 / 品牌VI / 平面 / 室内",
+    "footer.rights":"© 2026 贝屿创意设计工作室 · 保留所有权利",
+    "grid.empty":"该板块作品整理中，敬请期待","card.detail":"查看详情","card.count":" 图","ph.placeholder":"插画占位","lb.defaultLink":"查看详情"
+  },
+  en:{
+    "docTitle":"Beiyu Creative Design Studio",
+    "nav.home":"Home","nav.about":"About","nav.founders":"Founders","nav.works":"Works","nav.contact":"Contact","nav.cta":"Let's Talk",
+    "hero.eyebrow":"Wuhan · Architecture & Design Studio",
+    "hero.h1":"Design an <span class=\"accent\">island</span><br>Turn imagination into reality",
+    "hero.desc":"Beiyu Creative Design Studio builds on <b>architecture</b> and extends through <b>creativity</b>. From concept, planning approval and construction drawings to on-site service, covering <b>Cultural Tourism · Architecture (Landscape) · Urban Renewal · Brand & VI · Graphic · Interior</b> — giving every site a form of its own.",
+    "hero.btnWorks":"View Works","hero.btnContact":"Get in Touch",
+    "hero.stat1":"Projects","hero.stat2":"Lead Designs","hero.stat3":"Disciplines","hero.stat4":"Full Service",
+    "about.h2":"About <em>Beiyu</em>","about.sub":"Untamed by the land, making every site an isle",
+    "about.p1":"Founded in Wuhan, <b>BEIYU CREATIVE DESIGN STUDIO</b> is untamed by the land — making every site an isle. Bei (贝), taken from the sea: the shell has been a rare and precious treasure since ancient times; the shell to the sea is like you and me to the crowd — ordinary, yet irreplaceable. It is also the shared character of our two founding designers' names, a quiet wish to stay connected with the mountains, rivers and the vast world — at ease, as the saying goes: where the heart settles, there is home. The team has grown through full-process training in major design institutes and repeated practice across project types — equally at home steering the complete cycle from <b>concept, planning approval and construction drawings to post-completion service</b>, and translating rigorous engineering logic into relaxed, human spaces.",
+    "about.quote":"An isle is a stone beside the land — parted from it at high tide, joined to it at low tide, a balance of yin and yang since ancient times. Beiyu: mountain and sea, us and all things — a single grain in the ocean of life, taken from the mountains and the sea, and to them we shall return.",
+    "about.p2":"All connections have a beginning and an end, in endless cycles; joined to the mountain or apart, parted from the sea or linked — there is no need to envy others' liveliness for one's own quiet moment, for today's stillness may be tomorrow's cherished memory. From large industrial parks to small, beautiful cultural-tourism spaces, we treat every project with the same rigor and sensitivity: read the site first, turn imagination into drawings, then turn drawings into tangible reality. Our work spans six disciplines — <b>cultural tourism, architecture (landscape), urban renewal/renovation, brand VI, graphic and interior design</b> — one-stop creative design and delivery from strategy to completion.",
+    "about.cap1.nm":"Cultural Tourism","about.cap1.ds":"Homestays · Camps · Nature Pastures · Tourism Spaces",
+    "about.cap2.nm":"Architecture (Landscape)","about.cap2.ds":"Public Buildings · Factories · Housing · Landscape",
+    "about.cap3.nm":"Urban Renewal / Renovation","about.cap3.ds":"Street Renewal · Factory Renovation · Municipal Landscape",
+    "about.cap4.nm":"Brand & VI","about.cap4.ds":"LOGO · Identity · Brand IP · Merchandise",
+    "about.cap5.nm":"Graphic Design","about.cap5.ds":"Posters · Brochures · Wayfinding · Packaging",
+    "about.cap6.nm":"Interior Design","about.cap6.ds":"Homestay Interiors · Commercial · Office Spaces",
+    "founders.h2":"Founders","founders.sub":"A partnership of architecture and brand",
+    "founders.role1":"Leo Nie · Principal Architect / Founder","founders.role2":"Xiang Bei · Co-Founder / Brand & Visual",
+    "founders.desc1":"BArch from Hubei University of Technology, MArch from Wuhan University of Technology. Five years at China Light Industry Wuhan Design & Engineering Co., Ltd. as principal design architect, covering the full process from concept to construction drawings — fluent in every stage from planning approval and specialist coordination to on-site service, always finding optimal solutions within complex constraints. Later shifted to cultural tourism, focusing on tourism landscape and camp planning: from the founder-invested Shi·Fu Youth Retreat to the overall delivery of DunDun Park Nature Pasture and the Yumushan Camp in Nanchang, he believes good design starts with reading the site, then turns imagination into tangible reality.",
+    "founders.desc2":"BArch & MArch from Huazhong University of Science and Technology. Four years at CITIC General Institute of Architectural Design and Research as principal design architect, covering the full process of schematic and construction drawings, building solid engineering craft in large public and civil buildings. Now leads Beiyu's brand visual creativity and architectural & landscape planning: focused on VI identity systems, brand IP design and visual atmospheres for cultural-tourism scenes, making space and brand one memorable identity. From the lightness of the Fengqi Pavilion bamboo structure to the red panda IP taking root across the park — from a single logo to a complete visual language, she gives each project a distinct temperament, so architecture, landscape and brand speak as one.",
+    "founders.tag1":"Architecture Design","founders.tag2":"Full Process","founders.tag3":"Construction Drawings","founders.tag4":"Tourism Landscape & Camp",
+    "founders.tag5":"VI Identity","founders.tag6":"Brand IP","founders.tag7":"Architecture & Landscape","founders.tag8":"Tourism Scene Making",
+    "works.h2":"Works","works.sub":"Tourism · Architecture · Urban Renewal · Brand & VI · Graphic · Interior",
+    "filter.all":"All","filter.tourism":"Tourism","filter.architecture":"Architecture","filter.urban":"Urban Renewal","filter.vi":"Brand & VI","filter.graphic":"Graphic","filter.interior":"Interior",
+    "contact.h2":"Contact","contact.sub":"Clients, peers and brands are welcome",
+    "contact.p1":"Every project deserves to be taken seriously. Whether you need a new factory, an office building, a municipal retrofit, or a cultural-tourism space and brand identity built from scratch — it all starts with a conversation.",
+    "contact.quote":"Give us the site, give us the imagination — the rest we hand back to you.",
+    "contact.p2":"We provide full-process service from initial consultation and scheme design to on-site delivery. Feel free to reach out anytime.",
+    "contact.dt1":"WeChat / Tel","contact.dt2":"Email","contact.dt3":"Studio Address","contact.addr":"Vanke City Light, Hongshan District, Wuhan, Hubei","contact.dt4":"Scope","contact.scope":"Tourism / Architecture / Urban Renewal / Brand & VI / Graphic / Interior",
+    "footer.rights":"© 2026 Beiyu Creative Design Studio · All rights reserved",
+    "grid.empty":"More works coming soon","card.detail":"View Details","card.count":" images","ph.placeholder":"Illustration","lb.defaultLink":"View Details"
+  }
+};
+var PROJECTS_EN = {
+  "桂林洁伶总部经济商务中心项目":{title:"Guilin Jieling HQ Economic & Business Center",meta:[["Client","Guilin Jieling"],["Location","Guilin · Guangxi"],["Time","2022 — 2024"],["Status","Scheme Design"]],desc:"A headquarters complex covering offices, hotels and apartments. Over more than two years, the design evolved through several stylistic iterations — new-Chinese, modern minimalism, commercial podium and arched art forms — always responding prudently to the urban interface amid shifting requirements."},
+  "广德市实验小学北校区附属幼儿园":{title:"Affiliated Kindergarten, Guangde Experimental Primary School (North)",meta:[["Type","Competition · Lead Designer"],["Location","Guangde · Anhui"],["Status","Scheme (3rd Place)"]],desc:"Concept 'Dream Valley': flowing ribbon-like shared play spaces and valley-shaped classroom volumes maximize outdoor areas and landscape. As lead designer, completed the full competition package independently within 14 days."},
+  "明光仓里咖啡 · 旧厂房改造":{title:"Cangli Coffee · Old Factory Renovation",meta:[["Type","Renovation · Coffee & Cultural Space"],["Location","Mingguang · Anhui"],["Status","Built & Operating"]],desc:"A coffee-cultural space converted from an old factory: the timber truss roof and industrial memory are preserved, while red accents, farm tools, a fireplace and floor cushions blend industrial style with rural warmth, breathing new daily life into the old building."},
+  "智能化绿色数字印刷研发生产基地":{title:"Intelligent Green Digital Printing R&D Production Base",meta:[["Client","Hubei Hengtai Printing Co., Ltd."],["Location","Jiangxia · Wuhan"],["Time","2022 — 2024"],["Status","Built"]],desc:"Delivered the full process single-handedly, from scheme and planning approval to construction drawings and post-service. The design comprises a 4-storey Class C production workshop and a 15-storey dormitory tower, achieving an FAR of 2.2 on a tight site to maximize the owner's value."},
+  "汽车内饰件生产项目":{title:"Automotive Interior Parts Production Project",meta:[["Client","Wuhan Tongling Wode Co., Ltd."],["Location","Hannan · Wuhan"],["Time","2022 — 2023"],["Status","Built"]],desc:"Completed independently across the full process: a two-storey workshop, a four-storey dormitory, a Class A hazardous goods warehouse and two gatehouses, with well-organized circulation and zoning."},
+  "西安百跃羊奶粉生产基地":{title:"Xi'an Baiyue Goat Milk Powder Production Base",meta:[["Client","Xi'an Baiyue Group"],["Location","Yanliang · Xi'an"],["Time","2023 — 2024"],["Status","Scheme Stage"]],desc:"Overall scheme design for a dairy production base, coordinating the spatial organization and facade language of production, storage and auxiliary buildings."},
+  "君乐宝华南乳业全产业链一体化基地":{title:"Junlebao South China Integrated Dairy Base",meta:[["Client","Junlebao"],["Location","Jiangmen · Guangdong"],["Time","2023 — 2024"],["Status","Scheme Stage"]],desc:"An integrated large-scale dairy base spanning the whole industry chain, designed holistically from process flows to architectural image.",links:[{text:"Watch Project Video",url:"https://weixin.qq.com/sph/A24bxbCFz9"}]},
+  "通城研磨产业回归创业（孵化）园":{title:"Tongcheng Grinding Industry Return & Incubation Park",meta:[["Client","Tongcheng Jingkai Investment Co."],["Location","Tongcheng · Xianning"]],desc:"An incubation park for returning grinding-industry businesses, organizing workshops, offices and amenities into a pleasant, work-friendly environment."},
+  "金沙河集团总部基地概念方案":{title:"Jinshahe Group HQ Base Concept",meta:[["Client","Jinshahe Group"],["Location","Xingtai · Hebei"],["Time","2023"],["Status","Concept (Not Awarded)"]],desc:"A landmark ring-shaped waterside HQ anchors the campus; processing workshops, wastewater treatment, exhibition & reception, fire station, multi-purpose hall, expert building, R&D & QC, dormitory and canteen are organized into an efficient, iconic headquarters image."},
+  "承德北牧乳业迁址扩建项目":{title:"Chengde Beimu Dairy Relocation & Expansion",meta:[["Client","Chengde Beimu Dairy Co., Ltd."],["Location","Chengde · Hebei"]],desc:"Relocation and expansion of a dairy enterprise, covering the overall scheme of production workshops and front-of-plant buildings."},
+  "山东阳昇双创产业园 2#车间设计":{title:"Shandong Yangsheng Dual-Innovation Park Workshop #2",meta:[["Location","Liaocheng · Shandong"],["Time","2024 — 2025"],["Status","Under Construction"]],desc:"A new dairy production workshop serving a 300-ton daily capacity line: a frame-structure exhibition, office and R&D zone at the front, with a mainly steel-structure workshop behind."},
+  "威兴蓝新材料项目":{title:"Weixinglan New Materials Project",meta:[["Location","Pei County · Xuzhou"],["Time","2023 — 2025"],["Status","Under Construction"]],desc:"Overall scheme for a new-materials industrial park, coordinating production buildings, offices and supporting spaces."},
+  "青岛可颂食品工厂":{title:"Qingdao Kesong Food Factory",meta:[["Type","Food Factory · Scheme Design"],["Location","Qingdao · Shandong"],["Status","Scheme Design"]],desc:"A food factory scheme in Qingdao: multi-storey production buildings with coordinated process zoning, office support and front-of-plant image, presented from street-level, aerial and perspective views."},
+  "市政道路改造效果图系列":{title:"Municipal Road Improvement Renderings",meta:[["Content","Underpasses · Landscape Upgrades"],["Location","Wuhan"],["Time","2018"]],desc:"Rendering production for municipal road improvements — Donghu Road underpasses, Yujialu Road and Guanggu Avenue sections — covering paving, greening and facility layout, presented as before-and-after comparisons."},
+  "惠州仲恺惠环街道城市更新":{title:"Huihuan Street Urban Renewal, Huizhou Zhongkai",meta:[["Type","Urban Renewal · Street Retrofit"],["Location","Huizhou · Guangdong"],["Area","Approx. 51,600 m²"],["Status","Scheme Design"]],desc:"A district urban renewal scheme for Huihuan Street: building repairs, facade renovation, greening and street landscape reshaping, plus new F&B and leisure uses, transforming a cluttered suburban street into a tidy, lively leisure boulevard."},
+  "柿·Fu青年疗养院":{title:"Shi·Fu Youth Retreat",meta:[["Type","Homestay · Self-Built Renovation"],["Location","Suizhou · Hubei"],["Status","Founder-Owned & Operated"]],desc:"A youth retreat converted from the founder's family house — invested, designed, renovated and operated by the founder. Under the local brand 'Shi' (persimmon): a clean modern exterior with interiors of rattan, wood and linen create a relaxed, healing atmosphere — nature bedrooms, a firewood kitchen, a wabi-sabi lounge and even an e-sports room, where healing can be both slow and playful."},
+  "DunDun Park 自然牧场 · 南昌磨盘山":{title:"DunDun Park Nature Pasture · Nanchang",meta:[["Type","Tourism Space · Red Panda Theme"],["Location","Nanchang · Jiangxi"],["Status","Open & Operating"]],desc:"A red-panda themed nature pasture in Mopanshan Forest Park: grassland pasture, unpowered playground, forest market and 'RED PANDA' themed café. From the sculptural entry signage, cloud swings and lawn theatre to the IP wayfinding system, the park creates a wild, healing family destination that became an instant urban micro-vacation hotspot.",links:[{text:"View on Xiaohongshu",url:"https://link.wtturl.cn/?target=https%3A%2F%2Fwww.xiaohongshu.com%2Fdiscovery%2Fitem%2F6ac30ab5000000001c01dcc2%3Fsource%3Dwebshare%26xhsshare%3Dpc_web%26xsec_token%3DABrPvWcQDF6epF8fDRzR06f5ZMk9Egio2CRdtaG_WUYX0%3D%26xsec_source%3Dpc_share&scene=im&aid=582478&lang=zh"}]},
+  "南昌鱼目山泰式烧烤营地":{title:"Nanchang Yumushan Thai BBQ Camp",meta:[["Type","Tourism Camp · Thai BBQ"],["Location","Nanchang · Jiangxi"],["Status","Scheme Design"]],desc:"A Thai BBQ-themed camp at Yumushan: thatched-roof timber pavilions, stilted huts and boardwalks craft a Southeast Asian atmosphere, with elephant sculptures, Buddha ornaments, lanterns and fabric accents. Low-cost, lightweight Thai-style photo spots are scattered across the site — every corner an Instagram-ready moment, favoring quality, light and tropical detail over grand scale."},
+  "凤栖亭 · 武汉有田生态田园":{title:"Fengqi Pavilion · Wuhan Youtian Eco-Garden",meta:[["Type","Bamboo Pavilion"],["Location","Jiangxia · Wuhan"],["Time","2020"],["Status","Built"]],desc:"A bamboo pavilion in Wuhan's Youtian Eco-Garden, a work of the HUST Jiangzuo Studio with Beiyu co-founder Xiang Bei on the design team. Inspired by the Book of Songs — 'like a bird soaring' — the arched bamboo structure echoes the Chu phoenix totem and the classic 'round heaven, square earth' philosophy. Hunan nan bamboo is heat-bent and steel-anchored; bamboo louvres filter dappled light and breeze. 6m wide, 9m deep and 5m high, it can host a full class of nature education — a model of traditional bamboo craft meeting modern structure.",links:[{text:"View Project · gooood",url:"https://www.gooood.cn/fengqi-pavilion-jiangzuo-studio.htm"}]},
+  "贝屿视觉识别系统":{title:"Beiyu Visual Identity System",meta:[["Content","LOGO & Brand Basics"],["Status","In Use"]],desc:"The 'Beiyu' logotype paired with 'x & N DESIGN': wave curves converse with geometric folds — softness and strength, brand and design in dialogue — forming a crisp, modern visual core that anchors the Beiyu brand system."},
+  "小熊猫 IP 形象 · 品牌应用":{title:"Red Panda IP · Brand Applications",meta:[["Content","RED PANDA IP · Wayfinding · Brochure · Merch"],["Status","In Use"]],desc:"The red panda brand IP created for DunDun Park: sunglasses-wearing, coffee-serving 'RED PANDA' runs through the park's wayfinding, marketing materials and merchandise — from the hand-drawn map, entry posters and tri-fold brochure to the 'Mountain Leisure' red panda keychain blind-box series — making the IP the most recognizable symbol of the park."},
+  "柿·Fu青年疗养院 · 室内设计":{title:"Shi·Fu Youth Retreat · Interior Design",meta:[["Type","Homestay Interior · Self-Built Renovation"],["Location","Suizhou · Hubei"],["Status","Founder-Owned & Operated"]],desc:"The interior of the Shi·Fu Youth Retreat: rattan, wood, linen and earth tones throughout — wabi-sabi bedrooms and lounge, a firewood kitchen and an e-sports room — natural materials and a relaxed atmosphere, where healing can be both slow and playful."},
+  "撞色几何风 · 主题卫浴空间":{title:"Color-Block Geometric · Themed Bathroom Space",meta:[["Content","Color-Block Tiles · Geometric Patterns · Artistic Sanitaryware"],["Status","Design Rendering"]],desc:"A themed bathroom design driven by high-saturation color blocks and geometric tile patterns: artistic washbasins, decorative mirrors and sculptural lighting create a lively, refreshing bathing experience — ideal for differentiated guest bathrooms in homestays and commercial spaces."},
+  "废墟工业风 · 咖啡厅与休闲空间":{title:"Ruins Industrial · Café & Lounge Space",meta:[["Content","Ruins-Style Café · Homestay Lounge · RED PANDA Theme"],["Status","Design Rendering"]],desc:"A Syrian-ruins industrial café and lounge design: exposed fair-faced concrete with red-brick textures, vintage metal pipes and wooden ceiling fans set a rugged backdrop, while distressed leather banquettes and Persian-pattern rugs add warmth; RED PANDA motifs are woven subtly into the soft furnishings, forming a complete lifestyle scene together with a homestay youth lounge and a sunroom lounge."},
+  "DunDun Park 自然牧场 · 品牌平面设计":{title:"DunDun Park Nature Pasture · Brand Graphic Design",meta:[["Content","Park Map · Signage · Posters · Ticketing · Mural"],["Location","Nanchang · Jiangxi"],["Status","In Use"]],desc:"A complete set of graphic materials for DunDun Park: the park map, entry signage, promotional posters, VIP tickets, visitor notices, the red panda toilet mural, and wayfinding signs for each animal zone — red panda, capybara, coatimundi and more — one consistent cartoon-healing style and RED PANDA visual language across every touchpoint, letting the brand grow naturally through the park experience."}
+};
+var LANG = "zh";
+function i18nTxt(key){ var d = I18N[LANG]; return (d && d[key] !== undefined) ? d[key] : I18N.zh[key]; }
+function projEn(p){ return PROJECTS_EN[p.title] || null; }
+function projTitle(p){ var e = projEn(p); return e && LANG==="en" ? e.title : p.title; }
+function projDesc(p){ var e = projEn(p); return e && LANG==="en" ? e.desc : p.desc; }
+function projMeta(p){ var e = projEn(p); return e && LANG==="en" && e.meta ? e.meta : p.meta; }
+function projLinks(p){ var e = projEn(p); return e && LANG==="en" && e.links ? e.links : (p.links || []); }
+function catName(c){ return LANG==="en" ? (CAT_NAMES_EN[c]||"") : (CAT_NAMES[c]||""); }
+function setLang(lang){
+  LANG = lang === "en" ? "en" : "zh";
+  try{ localStorage.setItem("beiyu-lang", LANG); }catch(e){}
+  document.documentElement.lang = LANG === "en" ? "en" : "zh-CN";
+  document.title = i18nTxt("docTitle");
+  var lb = document.getElementById("langBtn");
+  if(lb) lb.textContent = LANG === "zh" ? "EN" : "中";
+  document.querySelectorAll("[data-i18n]").forEach(function(el){
+    var k = el.getAttribute("data-i18n");
+    var v = I18N[LANG][k];
+    if(v !== undefined) el.textContent = v;
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach(function(el){
+    var k = el.getAttribute("data-i18n-html");
+    var v = I18N[LANG][k];
+    if(v !== undefined) el.innerHTML = v;
+  });
+  renderGrid(currentFilter);
+}
+document.addEventListener("DOMContentLoaded", function(){
+  var saved = null;
+  try{ saved = localStorage.getItem("beiyu-lang"); }catch(e){}
+  setLang(saved === "en" ? "en" : "zh");
+  var lb = document.getElementById("langBtn");
+  if(lb) lb.addEventListener("click", function(){ setLang(LANG === "zh" ? "en" : "zh"); });
+});
+
 
 /* ============================================================
    岛屿等高线 SVG（签名元素：呼应"贝屿"与LOGO波线）
@@ -815,7 +996,7 @@ var grid = document.getElementById("workGrid");
 function renderGrid(filter){
   grid.innerHTML = "";
   var list = PROJECTS.filter(function(p){ return filter==="all" || p.category===filter; }).sort(function(a,b){ return (CAT_ORDER[a.category]!==undefined?CAT_ORDER[a.category]:9)-(CAT_ORDER[b.category]!==undefined?CAT_ORDER[b.category]:9); });
-  if(!list.length){ grid.innerHTML = '<div class="grid-empty">该板块作品整理中，敬请期待</div>'; return; }
+  if(!list.length){ grid.innerHTML = '<div class="grid-empty">' + i18nTxt("grid.empty") + '</div>'; return; }
   list.forEach(function(p, i){
     var card = document.createElement("article");
     card.className = "card";
@@ -823,18 +1004,18 @@ function renderGrid(filter){
     card.setAttribute("data-cat", p.category);
     var media = '<div class="card-media">';
     if(p.images && p.images.length){
-      media += '<img loading="lazy" src="' + p.images[0] + '" alt="' + p.title + '">';
-      media += '<span class="card-count">' + p.images.length + ' 图</span>';
+      media += '<img loading="lazy" src="' + p.images[0] + '" alt="' + projTitle(p) + '">';
+      media += '<span class="card-count">' + p.images.length + i18nTxt("card.count") + '</span>';
     }else{
       media += '<div class="ph">' + placeholderSVG() + '</div>';
     }
-    media += '<span class="card-tag">' + CAT_NAMES[p.category] + '</span></div>';
+    media += '<span class="card-tag">' + catName(p.category) + '</span></div>';
     var metaHTML = "";
-    p.meta.slice(0,3).forEach(function(m){ metaHTML += '<span><b>' + m[0] + '</b> ' + m[1] + '</span>'; });
+    projMeta(p).slice(0,3).forEach(function(m){ metaHTML += '<span><b>' + m[0] + '</b> ' + m[1] + '</span>'; });
     card.innerHTML = media +
-      '<div class="card-body"><h3>' + p.title + '</h3>' +
+      '<div class="card-body"><h3>' + projTitle(p) + '</h3>' +
       '<div class="card-meta">' + metaHTML + '</div>' +
-      '<span class="card-go">查看详情</span></div>';
+      '<span class="card-go">' + i18nTxt("card.detail") + '</span></div>';
     card.addEventListener("click", function(){ openLightbox(p); });
     grid.appendChild(card);
   });
@@ -868,15 +1049,15 @@ var currentIndex = 0, currentList = [];
 function openLightbox(proj){
   currentList = proj.images && proj.images.length ? proj.images : [""];
   currentIndex = 0;
-  lbTitle.textContent = proj.title;
-  lbCat.textContent = CAT_NAMES[proj.category] + " · " + CAT_EN[proj.category];
+  lbTitle.textContent = projTitle(proj);
+  lbCat.textContent = catName(proj.category) + " · " + CAT_EN[proj.category];
   lbMeta.innerHTML = "";
-  proj.meta.forEach(function(m){
+  projMeta(proj).forEach(function(m){
     lbMeta.innerHTML += '<dt>' + m[0] + '</dt><dd>' + m[1] + '</dd>';
   });
-  lbDesc.textContent = proj.desc;
+  lbDesc.textContent = projDesc(proj);
   var lbLink = document.getElementById("lbLink");
-  var links = proj.links || (proj.link ? [{text:"查看详情",url:proj.link}] : []);
+  var links = projLinks(proj).length ? projLinks(proj) : (proj.link ? [{text:i18nTxt("lb.defaultLink"),url:proj.link}] : []);
   if(links.length){
     var html = "";
     links.forEach(function(l){
@@ -890,7 +1071,7 @@ function openLightbox(proj){
   if(proj.images && proj.images.length){
     proj.images.forEach(function(src, i){
       var t = document.createElement("img");
-      t.src = src; t.alt = proj.title + " 图" + (i+1);
+      t.src = src; t.alt = projTitle(proj) + (LANG==="en" ? " image " : " 图") + (i+1);
       t.addEventListener("click", function(e){ e.stopPropagation(); showLbImage(i); });
       lbThumbs.appendChild(t);
     });
@@ -912,7 +1093,7 @@ function showLbImage(i){
   Array.prototype.forEach.call(lbThumbs.children, function(t, ti){
     t.classList.toggle("active", ti===i);
   });
-  lbCounter.textContent = (currentList.length ? (i+1) + " / " + currentList.length : "插画占位");
+  lbCounter.textContent = (currentList.length ? (i+1) + " / " + currentList.length : i18nTxt("ph.placeholder"));
 }
 function closeLightbox(){
   lb.classList.remove("open");

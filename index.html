@@ -258,6 +258,16 @@ section{scroll-margin-top:calc(var(--nav-h) + 12px);position:relative;}
   font-size:11px;letter-spacing:.1em;padding:6px 12px;color:var(--blue);
   background:rgba(245,244,239,.92);border:1px solid var(--line);font-weight:600;
 }
+.card-badge{
+  position:absolute;bottom:14px;left:14px;z-index:2;
+  font-size:11px;letter-spacing:.12em;padding:6px 14px;color:#fff;
+  background:var(--blue);font-weight:600;
+}
+.lb-badge{
+  display:none;vertical-align:middle;margin-left:10px;
+  font-size:11px;letter-spacing:.12em;padding:4px 10px;color:#fff;
+  background:var(--blue);font-weight:600;
+}
 .card-body{padding:22px 24px 24px;}
 .card-body h3{font-family:var(--font-serif);font-size:19px;font-weight:700;letter-spacing:.05em;line-height:1.4;}
 .card-meta{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:10px;font-size:12px;color:var(--gray);font-weight:300;}
@@ -583,7 +593,7 @@ section{scroll-margin-top:calc(var(--nav-h) + 12px);position:relative;}
       <div class="lb-thumbs" id="lbThumbs"></div>
     </div>
     <div class="lb-info">
-      <span class="lb-cat" id="lbCat"></span>
+      <span class="lb-cat" id="lbCat"></span><span class="lb-badge" id="lbBadge"></span>
       <h3 id="lbTitle"></h3>
       <dl class="lb-meta" id="lbMeta"></dl>
       <p class="lb-desc" id="lbDesc"></p>
@@ -607,14 +617,14 @@ section{scroll-margin-top:calc(var(--nav-h) + 12px);position:relative;}
 var PROJECTS = [
   {
     category:"architecture",
-    title:"桂林洁伶总部经济商务中心项目",
+    title:"桂林洁伶总部经济商务中心项目", institute:true,
     meta:[["业主","桂林洁伶"],["地点","广西 · 桂林"],["时间","2022 — 2024"],["状态","方案设计"]],
     desc:"涵盖办公、酒店、公寓等多业态的总部经济综合体。项目历时两年余，期间根据业主需求不断推演建筑风格，先后形成新中式、现代简约、商业裙楼与拱形艺术等多种方案，在多变的需求中保持对城市界面的审慎回应。",
     images:["https://aka.doubaocdn.com/s/oVB4mOiFMy","https://aka.doubaocdn.com/s/VNXV2ETiOQ","https://aka.doubaocdn.com/s/oxnHq7VAGc","https://aka.doubaocdn.com/s/HC06yok41K"]
   },
   {
     category:"architecture",
-    title:"广德市实验小学北校区附属幼儿园",
+    title:"广德市实验小学北校区附属幼儿园", institute:true,
     meta:[["项目类型","投标项目 · 主创"],["地点","安徽 · 广德"],["状态","方案设计（获第三名）"]],
     desc:"以「梦乐溪谷」为设计概念——流动丝带状的共享游戏空间，山谷体量的教室空间，让活动场地与景观最大化。作为主创在仅有的14天内独立完成整套投标文件。",
     images:["https://aka.doubaocdn.com/s/HQ40uNMbf3","https://aka.doubaocdn.com/s/6atVeUhmTP","https://aka.doubaocdn.com/s/DvmO9cjcx3"]
@@ -628,28 +638,28 @@ var PROJECTS = [
   },
   {
     category:"architecture",
-    title:"智能化绿色数字印刷研发生产基地",
+    title:"智能化绿色数字印刷研发生产基地", institute:true,
     meta:[["业主","湖北恒泰印务有限公司"],["地点","武汉市 · 江夏区"],["时间","2022 — 2024"],["状态","已建成"]],
     desc:"一人完成从方案沟通、规划报审、施工图设计到后期服务的全流程。设计包括一栋四层丙类生产车间（一至三层生产、四层办公）与一栋15层宿舍楼（底层架空，二三层为食堂及活动室）。在用地狭小的条件下将容积率做到2.2，为业主争取最大利益。",
     images:["https://aka.doubaocdn.com/s/7qVgOpLBR8","https://aka.doubaocdn.com/s/6yrocz8Itc","https://aka.doubaocdn.com/s/TWsG3cNIKt"]
   },
   {
     category:"architecture",
-    title:"汽车内饰件生产项目",
+    title:"汽车内饰件生产项目", institute:true,
     meta:[["业主","武汉通领沃德有限公司"],["地点","武汉市 · 汉南区"],["时间","2022 — 2023"],["状态","已建成"]],
     desc:"全流程独立完成。设计包括一栋两层生产车间、一栋四层宿舍楼（底层为食堂及活动室）、一栋甲类危险品仓库与两栋门房，合理组织厂区流线与功能分区。",
     images:["https://aka.doubaocdn.com/s/XMxJvU3kMn","https://aka.doubaocdn.com/s/1wwve5Oie0","https://aka.doubaocdn.com/s/juLzrkplJV","https://aka.doubaocdn.com/s/9tCe2kAZBu","https://aka.doubaocdn.com/s/Rl7MHklh3U"]
   },
   {
     category:"architecture",
-    title:"西安百跃羊奶粉生产基地",
+    title:"西安百跃羊奶粉生产基地", institute:true,
     meta:[["业主","西安百跃集团"],["地点","西安市 · 阎良区"],["时间","2023 — 2024"],["状态","方案阶段"]],
     desc:"乳制品生产基地整体方案设计，统筹厂区生产、仓储与配套建筑的空间组织与立面表达。",
     images:["https://aka.doubaocdn.com/s/2Zrt4753W2","https://aka.doubaocdn.com/s/JXy4nfhJyw","https://aka.doubaocdn.com/s/moJSzToA2H"]
   },
   {
     category:"architecture",
-    title:"君乐宝华南乳业全产业链一体化基地",
+    title:"君乐宝华南乳业全产业链一体化基地", institute:true,
     meta:[["业主","君乐宝"],["地点","广东省 · 江门市"],["时间","2023 — 2024"],["状态","方案阶段"]],
     desc:"面向全产业链一体化的大型乳业基地，从工艺流线到建筑形象进行整体性方案设计。",
     links:[{text:"观看项目视频",url:"https://weixin.qq.com/sph/A24bxbCFz9"}],
@@ -657,42 +667,42 @@ var PROJECTS = [
   },
   {
     category:"architecture",
-    title:"通城研磨产业回归创业（孵化）园",
+    title:"通城研磨产业回归创业（孵化）园", institute:true,
     meta:[["业主","通城经开投资有限公司"],["地点","咸宁市 · 通城县"]],
     desc:"产业回归创业孵化园区，围绕研磨产业组织厂房、办公与配套空间，营造宜业宜人的园区环境。",
     images:["https://aka.doubaocdn.com/s/ifPuxwwKgu","https://aka.doubaocdn.com/s/lVPVoqxo11"]
   },
   {
     category:"architecture",
-    title:"金沙河集团总部基地概念方案",
+    title:"金沙河集团总部基地概念方案", institute:true,
     meta:[["业主","金沙河集团"],["地点","河北省 · 邢台市"],["时间","2023"],["状态","概念方案（未中标）"]],
     desc:"以临水环形主体建筑统领园区，围绕加工车间组织污水处理、展示接待中心、消防站、多功能厅、专家楼、办公研发质检、宿舍、食堂等功能分区，形成高效而具标志性的总部园区形象。",
     images:["https://aka.doubaocdn.com/s/HZqHFwwrzs","https://aka.doubaocdn.com/s/Uec5Xbpbf8","https://aka.doubaocdn.com/s/OyZVpKOYpW"]
   },
   {
     category:"architecture",
-    title:"承德北牧乳业迁址扩建项目",
+    title:"承德北牧乳业迁址扩建项目", institute:true,
     meta:[["业主","承德北牧乳业有限责任公司"],["地点","河北省 · 承德市"]],
     desc:"乳业企业迁址扩建项目，涵盖生产厂房与厂前区配套建筑的整体方案设计。",
     images:["https://aka.doubaocdn.com/s/Y6evPabKnV","https://aka.doubaocdn.com/s/tucGOUHd6Y","https://aka.doubaocdn.com/s/fUZEPoLE77"]
   },
   {
     category:"architecture",
-    title:"山东阳昇双创产业园 2#车间设计",
+    title:"山东阳昇双创产业园 2#车间设计", institute:true,
     meta:[["地点","山东省 · 聊城市"],["时间","2024 — 2025"],["状态","在建"]],
     desc:"在已有项目用地内新建乳品生产车间，满足日产能300吨的工艺生产线需求：前部为框架结构参观展览及办公研发区域，后方主要为钢结构生产车间。",
     images:["https://aka.doubaocdn.com/s/3jUYcJbxDM","https://aka.doubaocdn.com/s/Sq5pNV9QgS"]
   },
   {
     category:"architecture",
-    title:"威兴蓝新材料项目",
+    title:"威兴蓝新材料项目", institute:true,
     meta:[["地点","徐州市 · 沛县"],["时间","2023 — 2025"],["状态","在建"]],
     desc:"新材料产业园区整体方案设计，统筹生产厂房、办公与配套空间的规划与建筑形象。",
     images:["https://aka.doubaocdn.com/s/V9o6UQlNRZ","https://aka.doubaocdn.com/s/oZLpF6pjnh","https://aka.doubaocdn.com/s/skVf7TbVCM"]
   },
   {
     category:"architecture",
-    title:"青岛可颂食品工厂",
+    title:"青岛可颂食品工厂", institute:true,
     meta:[["类型","食品工厂 · 方案设计"],["地点","山东 · 青岛"],["状态","方案设计"]],
     desc:"位于青岛的可颂食品工厂项目：以多层生产厂房为主体，统筹车间工艺分区、办公配套与厂前区形象，从人视、街道到鸟瞰多视角呈现现代食品工厂的完整形象与环境关系。",
     images:["https://aka.doubaocdn.com/s/LqVXI4xlyZ","https://aka.doubaocdn.com/s/RzgMVtLJDu","https://aka.doubaocdn.com/s/yJJ53R83ED","https://aka.doubaocdn.com/s/mKDj7PscwD","https://aka.doubaocdn.com/s/8JYUyLpaiU"]
@@ -829,7 +839,7 @@ var I18N = {
     "contact.p2":"我们提供从前期咨询、方案设计到落地配合的全流程服务，欢迎随时联系。",
     "contact.dt1":"微信 / 电话","contact.dt2":"电子邮箱","contact.dt3":"工作室地址","contact.addr":"湖北省武汉市洪山区 · 万科城市之光","contact.dt4":"合作范围","contact.scope":"文旅 / 建筑景观 / 城市更新旧改 / 品牌VI / 平面 / 室内",
     "footer.rights":"© 2026 贝屿创意设计工作室 · 保留所有权利",
-    "grid.empty":"该板块作品整理中，敬请期待","card.detail":"查看详情","card.count":" 图","ph.placeholder":"插画占位","lb.defaultLink":"查看详情"
+    "grid.empty":"该板块作品整理中，敬请期待","card.detail":"查看详情","card.count":" 图","ph.placeholder":"插画占位","lb.defaultLink":"查看详情","badge.institute":"设计院参与负责项目作品"
   },
   en:{
     "docTitle":"Beiyu Creative Design Studio",
@@ -863,7 +873,7 @@ var I18N = {
     "contact.p2":"We provide full-process service from initial consultation and scheme design to on-site delivery. Feel free to reach out anytime.",
     "contact.dt1":"WeChat / Tel","contact.dt2":"Email","contact.dt3":"Studio Address","contact.addr":"Vanke City Light, Hongshan District, Wuhan, Hubei","contact.dt4":"Scope","contact.scope":"Tourism / Architecture / Urban Renewal / Brand & VI / Graphic / Interior",
     "footer.rights":"© 2026 Beiyu Creative Design Studio · All rights reserved",
-    "grid.empty":"More works coming soon","card.detail":"View Details","card.count":" images","ph.placeholder":"Illustration","lb.defaultLink":"View Details"
+    "grid.empty":"More works coming soon","card.detail":"View Details","card.count":" images","ph.placeholder":"Illustration","lb.defaultLink":"View Details","badge.institute":"Design Institute · Responsible Project"
   }
 };
 var PROJECTS_EN = {
@@ -1009,7 +1019,9 @@ function renderGrid(filter){
     }else{
       media += '<div class="ph">' + placeholderSVG() + '</div>';
     }
-    media += '<span class="card-tag">' + catName(p.category) + '</span></div>';
+    media += '<span class="card-tag">' + catName(p.category) + '</span>';
+    if(p.institute){ media += '<span class="card-badge">' + i18nTxt("badge.institute") + '</span>'; }
+    media += '</div>';
     var metaHTML = "";
     projMeta(p).slice(0,3).forEach(function(m){ metaHTML += '<span><b>' + m[0] + '</b> ' + m[1] + '</span>'; });
     card.innerHTML = media +
@@ -1044,6 +1056,7 @@ var lbCat = document.getElementById("lbCat");
 var lbMeta = document.getElementById("lbMeta");
 var lbDesc = document.getElementById("lbDesc");
 var lbCounter = document.getElementById("lbCounter");
+var lbBadge = document.getElementById("lbBadge");
 var currentIndex = 0, currentList = [];
 
 function openLightbox(proj){
@@ -1051,6 +1064,8 @@ function openLightbox(proj){
   currentIndex = 0;
   lbTitle.textContent = projTitle(proj);
   lbCat.textContent = catName(proj.category) + " · " + CAT_EN[proj.category];
+  lbBadge.style.display = proj.institute ? "inline-block" : "none";
+  lbBadge.textContent = i18nTxt("badge.institute");
   lbMeta.innerHTML = "";
   projMeta(proj).forEach(function(m){
     lbMeta.innerHTML += '<dt>' + m[0] + '</dt><dd>' + m[1] + '</dd>';

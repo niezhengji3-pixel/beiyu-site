@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>贝屿创意设计工作室 · BEIYU CREATIVE DESIGN STUDIO</title>
+<meta name="description" content="贝屿创意设计工作室——以建筑为基底、以创意为延伸，覆盖民用建筑、工业建筑、市政设计、文旅设计与品牌VI五大板块。">
+<link rel="preconnect" href="https://miaoda.feishu.cn">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<style>
+/* ============================================================
+   贝屿创意设计工作室 · 展示网站
+   视觉体系：蓝图纸 × 岛屿等高线（呼应黑白LOGO的波线与折线）
+   ============================================================ */
+:root{
+  --paper:#F5F4EF;
+  --paper-2:#ECE9E1;
+  --paper-3:#E4E1D8;
+  --ink:#16181F;
+  --ink-soft:#3A3F4B;
+  --gray:#838996;
+  --line:rgba(22,24,31,.14);
+  --line-strong:rgba(22,24,31,.32);
+  --blue:#2A5CB0;
+  --blue-deep:#1D4386;
+  --blue-soft:rgba(42,92,176,.07);
+  --font-serif:"Noto Serif SC","Source Han Serif SC","Songti SC","SimSun",serif;
+  --font-sans:"Noto Sans SC","Source Han Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  --nav-h:76px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--font-sans);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+::selection{background:var(--blue);color:#fff;}
+section{scroll-margin-top:calc(var(--nav-h) + 12px);position:relative;}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px;}
+.serif{font-family:var(--font-serif);}
+
+/* 蓝图纸网格背景 */
+.blueprint{
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size:44px 44px;
+}
+.blueprint-soft{
+  background-image:
+    linear-gradient(rgba(42,92,176,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(42,92,176,.045) 1px, transparent 1px);
+  background-size:44px 44px;
+}
+
+/* ---------- 导航 ---------- */
+.nav{
+  position:fixed;inset:0 0 auto 0;z-index:100;
+  height:var(--nav-h);
+  background:rgba(245,244,239,.92);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  transition:box-shadow .3s var(--ease);
+}
+.nav.scrolled{box-shadow:0 8px 30px rgba(22,24,31,.07);}
+.nav-inner{height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.brand{display:flex;align-items:center;gap:14px;flex-shrink:0;}
+.brand img{height:52px;width:auto;display:block;}
+.brand-name{display:flex;flex-direction:column;line-height:1.2;}
+.brand-name b{font-family:var(--font-serif);font-size:17px;font-weight:700;letter-spacing:.12em;}
+.brand-name span{font-size:10px;letter-spacing:.34em;color:var(--gray);text-transform:uppercase;font-weight:500;}
+.nav-links{display:flex;align-items:center;gap:34px;list-style:none;}
+.nav-links a{position:relative;font-size:14px;letter-spacing:.14em;color:var(--ink-soft);font-weight:500;padding:6px 0;transition:color .25s;}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--blue);transition:width .3s var(--ease);}
+.nav-links a:hover,.nav-links a.active{color:var(--blue);}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+.nav-cta{
+  border:1px solid var(--ink);padding:9px 20px;font-size:13px;letter-spacing:.16em;
+  transition:all .3s var(--ease);background:transparent;font-weight:500;
+}
+.nav-cta:hover{background:var(--ink);color:var(--paper);}
+.burger{display:none;flex-direction:column;gap:5px;padding:8px;z-index:120;}
+.burger span{display:block;width:24px;height:2px;background:var(--ink);transition:all .3s var(--ease);}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.burger.open span:nth-child(2){opacity:0;}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-menu{
+  position:fixed;inset:var(--nav-h) 0 auto 0;z-index:99;
+  background:var(--paper);border-bottom:1px solid var(--line);
+  display:flex;flex-direction:column;
+  opacity:0;visibility:hidden;transform:translateY(-12px);
+  transition:all .3s var(--ease);
+}
+.mobile-menu.open{opacity:1;visibility:visible;transform:none;}
+.mobile-menu a{padding:16px 28px;font-size:15px;letter-spacing:.14em;border-bottom:1px solid var(--line);}
+.mobile-menu a:last-child{border-bottom:none;}
+
+/* ---------- Hero ---------- */
+.hero{
+  min-height:100vh;padding:calc(var(--nav-h) + 40px) 0 56px;
+  display:flex;align-items:center;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(42,92,176,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(42,92,176,.06) 1px, transparent 1px);
+  background-size:44px 44px;
+  mask-image:radial-gradient(120% 90% at 30% 40%, #000 30%, transparent 78%);
+  -webkit-mask-image:radial-gradient(120% 90% at 30% 40%, #000 30%, transparent 78%);
+}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.4em;color:var(--blue);font-weight:700;margin-bottom:26px;}
+.hero-eyebrow::before{content:"";width:38px;height:1px;background:var(--blue);}
+.hero h1{
+  font-family:var(--font-serif);font-weight:900;
+  font-size:clamp(40px,6.4vw,76px);line-height:1.12;letter-spacing:.06em;
+}
+.hero h1 .accent{color:var(--blue);}
+.hero-sub-en{margin-top:14px;font-size:13px;letter-spacing:.5em;color:var(--gray);font-weight:500;text-transform:uppercase;}
+.hero-desc{margin-top:30px;max-width:560px;color:var(--ink-soft);font-size:16.5px;font-weight:300;}
+.hero-desc b{font-weight:600;color:var(--ink);}
+.hero-actions{display:flex;gap:16px;margin-top:38px;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 34px;font-size:14px;letter-spacing:.2em;font-weight:600;
+  transition:all .32s var(--ease);position:relative;overflow:hidden;
+}
+.btn-solid{background:var(--ink);color:var(--paper);}
+.btn-solid:hover{background:var(--blue);transform:translateY(-2px);box-shadow:0 14px 30px rgba(42,92,176,.25);}
+.btn-line{border:1px solid var(--line-strong);color:var(--ink);}
+.btn-line:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px);}
+.hero-stats{display:flex;gap:0;margin-top:52px;border-top:1px solid var(--line);padding-top:28px;flex-wrap:wrap;}
+.stat{padding-right:44px;margin-right:44px;border-right:1px solid var(--line);}
+.stat:last-child{border-right:none;margin-right:0;padding-right:0;}
+.stat .num{font-family:var(--font-serif);font-size:34px;font-weight:900;color:var(--ink);line-height:1;letter-spacing:.02em;}
+.stat .num small{font-size:15px;color:var(--blue);font-weight:700;margin-left:2px;}
+.stat .lbl{font-size:12px;letter-spacing:.22em;color:var(--gray);margin-top:8px;font-weight:500;}
+.hero-art{position:relative;height:560px;}
+.hero-art svg{position:absolute;inset:0;width:100%;height:100%;}
+.hero-art .ring{fill:none;stroke:var(--blue);stroke-width:1.4;opacity:.9;}
+.hero-art .ring.ink{stroke:var(--ink);}
+.hero-art .mark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;}
+.hero-art .mark img{height:96px;width:auto;margin:0 auto 14px;display:block;}
+.hero-art .mark p{font-size:11px;letter-spacing:.42em;color:var(--gray);text-transform:uppercase;}
+.hero-scroll{
+  position:absolute;left:50%;bottom:22px;transform:translateX(-50%);
+  font-size:11px;letter-spacing:.4em;color:var(--gray);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:2;
+}
+.hero-scroll::after{content:"";width:1px;height:34px;background:linear-gradient(var(--gray),transparent);animation:drop 1.8s infinite var(--ease);}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top;}55%{transform:scaleY(1);transform-origin:top;}56%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+
+/* ---------- 章节标题 ---------- */
+.sec-head{margin-bottom:56px;}
+.sec-head .idx{font-size:13px;letter-spacing:.36em;color:var(--blue);font-weight:700;}
+.sec-head h2{
+  font-family:var(--font-serif);font-size:clamp(30px,4vw,46px);font-weight:900;
+  letter-spacing:.08em;margin-top:14px;line-height:1.2;
+}
+.sec-head h2 em{font-style:normal;color:var(--blue);}
+.sec-head .sub{color:var(--gray);font-size:14px;letter-spacing:.14em;margin-top:12px;font-weight:300;}
+.sec-head .en{font-size:11px;letter-spacing:.5em;color:var(--gray);text-transform:uppercase;margin-top:8px;font-weight:500;}
+
+/* ---------- 关于 ---------- */
+.about{padding:110px 0;border-top:1px solid var(--line);}
+.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:start;}
+.about-copy p{color:var(--ink-soft);font-weight:300;margin-bottom:20px;}
+.about-copy p b{font-weight:600;color:var(--ink);}
+.about-copy .quote{
+  font-family:var(--font-serif);font-size:19px;line-height:1.9;color:var(--ink);
+  border-left:3px solid var(--blue);padding-left:22px;margin:30px 0;font-weight:600;
+}
+.cap-list{border-top:1px solid var(--line);}
+.cap-row{
+  display:grid;grid-template-columns:64px 1fr auto;gap:20px;align-items:center;
+  padding:22px 8px;border-bottom:1px solid var(--line);position:relative;
+  transition:background .3s var(--ease);
+}
+.cap-row:hover{background:var(--blue-soft);}
+.cap-row .no{font-family:var(--font-serif);font-size:26px;font-weight:900;color:var(--blue);line-height:1;}
+.cap-row .nm{font-family:var(--font-serif);font-size:19px;font-weight:700;letter-spacing:.06em;}
+.cap-row .en{font-size:11px;letter-spacing:.3em;color:var(--gray);margin-top:4px;font-weight:500;}
+.cap-row .ds{font-size:13px;color:var(--gray);max-width:300px;text-align:right;font-weight:300;}
+
+/* ---------- 创始人 ---------- */
+.founders{padding:110px 0;background:var(--paper-2);border-top:1px solid var(--line);}
+.founder-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.founder-card{
+  background:var(--paper);border:1px solid var(--line);padding:44px 40px;
+  position:relative;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s var(--ease);
+}
+.founder-card:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(22,24,31,.10);}
+.founder-card::before{
+  content:"";position:absolute;top:-80px;right:-80px;width:240px;height:240px;border-radius:50%;
+  background:radial-gradient(circle, rgba(42,92,176,.10), transparent 70%);
+}
+.avatar{
+  width:116px;height:116px;border-radius:50%;
+  border:1px solid var(--blue);background:var(--paper);
+  overflow:hidden;position:relative;
+}
+.avatar::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px dashed var(--line-strong);pointer-events:none;}
+.avatar img{width:100%;height:100%;object-fit:cover;object-position:center 18%;}
+.founder-card h3{font-family:var(--font-serif);font-size:28px;font-weight:900;margin-top:26px;letter-spacing:.06em;}
+.founder-card .role{font-size:12px;letter-spacing:.3em;color:var(--blue);font-weight:700;margin-top:8px;text-transform:uppercase;}
+.founder-card .desc{color:var(--ink-soft);font-weight:300;margin-top:18px;font-size:15px;}
+.founder-card .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+.founder-card .tags span{font-size:11.5px;letter-spacing:.1em;border:1px solid var(--line);padding:5px 12px;color:var(--ink-soft);border-radius:99px;font-weight:500;}
+.founder-edit-note{font-size:12px;color:var(--gray);margin-top:16px;font-weight:300;}
+
+/* ---------- 作品 ---------- */
+.works{padding:110px 0;border-top:1px solid var(--line);}
+.filter-bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:44px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;}
+.filter-btn{
+  font-size:14px;letter-spacing:.18em;padding:9px 24px;color:var(--ink-soft);
+  border:1px solid transparent;transition:all .28s var(--ease);font-weight:500;
+}
+.filter-btn:hover{color:var(--blue);}
+.filter-btn.active{background:var(--ink);color:var(--paper);}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.card{
+  position:relative;background:var(--paper);border:1px solid var(--line);
+  overflow:hidden;cursor:pointer;transition:transform .35s var(--ease),box-shadow .35s var(--ease);
+  animation:cardIn .5s var(--ease) both;
+}
+@keyframes cardIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+.card:hover{transform:translateY(-6px);box-shadow:0 22px 46px rgba(22,24,31,.12);}
+.card-media{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--paper-3);}
+.card-media img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease);}
+.card:hover .card-media img{transform:scale(1.06);}
+.card-media .ph{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+}
+.card-media .ph svg{width:64%;height:64%;opacity:.75;}
+.card-tag{
+  position:absolute;top:14px;left:14px;z-index:2;
+  font-size:11px;letter-spacing:.18em;padding:6px 14px;color:#fff;
+  background:rgba(22,24,31,.78);backdrop-filter:blur(4px);font-weight:600;
+}
+.card-count{
+  position:absolute;top:14px;right:14px;z-index:2;
+  font-size:11px;letter-spacing:.1em;padding:6px 12px;color:var(--blue);
+  background:rgba(245,244,239,.92);border:1px solid var(--line);font-weight:600;
+}
+.card-body{padding:22px 24px 24px;}
+.card-body h3{font-family:var(--font-serif);font-size:19px;font-weight:700;letter-spacing:.05em;line-height:1.4;}
+.card-meta{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:10px;font-size:12px;color:var(--gray);font-weight:300;}
+.card-meta b{color:var(--ink-soft);font-weight:600;}
+.card-go{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:12.5px;letter-spacing:.22em;color:var(--blue);font-weight:600;}
+.card-go::after{content:"→";transition:transform .3s var(--ease);}
+.card:hover .card-go::after{transform:translateX(5px);}
+.grid-empty{grid-column:1/-1;text-align:center;padding:70px 0;color:var(--gray);letter-spacing:.2em;font-size:14px;}
+
+/* ---------- 灯箱 ---------- */
+.lightbox{
+  position:fixed;inset:0;z-index:200;display:none;
+  background:rgba(16,18,24,.94);backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;padding:40px;
+}
+.lightbox.open{display:flex;}
+.lb-frame{
+  width:min(1100px,96vw);max-height:92vh;display:grid;grid-template-columns:1.5fr 1fr;
+  background:var(--paper);overflow:hidden;animation:lbIn .35s var(--ease);
+}
+@keyframes lbIn{from{opacity:0;transform:scale(.97);}to{opacity:1;transform:none;}}
+.lb-media{position:relative;background:var(--ink);min-height:320px;display:flex;align-items:center;justify-content:center;}
+.lb-media img{max-width:100%;max-height:78vh;object-fit:contain;transition:opacity .25s;}
+.lb-thumbs{position:absolute;left:0;right:0;bottom:0;display:flex;gap:8px;padding:14px;background:linear-gradient(transparent,rgba(0,0,0,.55));overflow-x:auto;}
+.lb-thumbs img{width:64px;height:44px;object-fit:cover;cursor:pointer;border:2px solid transparent;opacity:.65;transition:all .25s;flex-shrink:0;}
+.lb-thumbs img.active,.lb-thumbs img:hover{opacity:1;border-color:var(--blue);}
+.lb-info{padding:44px 38px;overflow-y:auto;display:flex;flex-direction:column;}
+.lb-cat{font-size:11.5px;letter-spacing:.3em;color:var(--blue);font-weight:700;text-transform:uppercase;}
+.lb-info h3{font-family:var(--font-serif);font-size:26px;font-weight:900;margin-top:12px;line-height:1.35;letter-spacing:.03em;}
+.lb-meta{margin-top:16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;display:grid;grid-template-columns:72px 1fr;gap:8px 0;font-size:13.5px;}
+.lb-meta dt{color:var(--gray);letter-spacing:.14em;font-weight:500;}
+.lb-meta dd{color:var(--ink-soft);font-weight:300;}
+.lb-desc{margin-top:18px;color:var(--ink-soft);font-weight:300;font-size:15px;line-height:1.95;}
+.lb-link{margin-top:auto;padding-top:26px;}
+.lb-link-btn{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--ink);color:var(--paper);
+  padding:13px 26px;font-size:13px;letter-spacing:.16em;font-weight:600;
+  transition:all .3s var(--ease);margin:0 10px 10px 0;
+}
+.lb-link-btn:hover{background:var(--blue);transform:translateY(-2px);}
+.lb-link-btn::after{content:"↗";}
+.lb-close{
+  position:absolute;top:20px;right:24px;z-index:5;width:46px;height:46px;border-radius:50%;
+  background:rgba(245,244,239,.14);color:#fff;font-size:22px;display:flex;align-items:center;justify-content:center;
+  transition:all .25s;border:1px solid rgba(255,255,255,.2);
+}
+.lb-close:hover{background:var(--blue);}
+.lb-nav{
+  position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;
+  background:rgba(245,244,239,.12);color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center;
+  transition:all .25s;border:1px solid rgba(255,255,255,.18);z-index:4;
+}
+.lb-nav:hover{background:var(--blue);}
+.lb-nav.prev{left:16px;}
+.lb-nav.next{right:16px;}
+.lb-counter{position:absolute;bottom:16px;right:22px;color:rgba(255,255,255,.85);font-size:12.5px;letter-spacing:.2em;z-index:4;}
+
+/* ---------- 联系 ---------- */
+.contact{padding:110px 0;background:var(--ink);color:var(--paper);border-top:1px solid var(--ink);}
+.contact .sec-head .idx,.contact .sec-head .en,.contact .sec-head .sub{color:rgba(245,244,239,.62);}
+.contact .sec-head h2{color:var(--paper);}
+.contact .sec-head h2 em{color:#6E9BE0;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+.contact-copy p{color:rgba(245,244,239,.78);font-weight:300;margin-bottom:18px;max-width:520px;}
+.contact-copy .quote{font-family:var(--font-serif);font-size:20px;line-height:1.85;color:#fff;border-left:3px solid #6E9BE0;padding-left:22px;margin:28px 0;font-weight:600;}
+.contact-list{border-top:1px solid rgba(245,244,239,.18);}
+.contact-item{display:grid;grid-template-columns:96px 1fr;gap:16px;padding:20px 6px;border-bottom:1px solid rgba(245,244,239,.18);align-items:center;}
+.contact-item dt{font-size:12px;letter-spacing:.26em;color:rgba(245,244,239,.55);font-weight:500;}
+.contact-item dd{font-size:16px;font-weight:400;letter-spacing:.04em;}
+.contact-item dd a{color:#6E9BE0;border-bottom:1px solid rgba(110,155,224,.4);transition:color .25s;}
+.contact-item dd a:hover{color:#9CC0F0;}
+.contact-note{margin-top:26px;font-size:12.5px;color:rgba(245,244,239,.5);letter-spacing:.08em;font-weight:300;}
+
+/* ---------- 页脚 ---------- */
+.footer{padding:44px 0 40px;border-top:1px solid rgba(245,244,239,.16);}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.footer .brand img{height:52px;width:auto;display:block;}
+.footer p{font-size:12px;color:rgba(245,244,239,.55);letter-spacing:.1em;font-weight:300;}
+.footer .en{font-size:10px;letter-spacing:.4em;color:rgba(245,244,239,.4);text-transform:uppercase;margin-top:4px;}
+
+/* ---------- 滚动显现 ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.reveal.in{opacity:1;transform:none;}
+.reveal.d1{transition-delay:.08s;}
+.reveal.d2{transition-delay:.16s;}
+.reveal.d3{transition-delay:.24s;}
+
+/* ---------- 返回顶部 ---------- */
+.to-top{
+  position:fixed;right:28px;bottom:28px;z-index:90;width:50px;height:50px;border-radius:50%;
+  background:var(--ink);color:var(--paper);font-size:18px;display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transform:translateY(12px);transition:all .35s var(--ease);border:1px solid var(--ink);
+}
+.to-top.show{opacity:1;visibility:visible;transform:none;}
+.to-top:hover{background:var(--blue);}
+
+/* ---------- 响应式 ---------- */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-art{height:340px;order:-1;}
+  .grid{grid-template-columns:repeat(2,1fr);}
+  .lb-frame{grid-template-columns:1fr;overflow-y:auto;}
+  .lb-media img{max-height:50vh;}
+  .about-grid{grid-template-columns:1fr;gap:48px;}
+  .founder-grid{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;gap:40px;}
+}
+@media(max-width:760px){
+  .nav-links,.nav-cta{display:none;}
+  .burger{display:flex;}
+  .wrap{padding:0 20px;}
+  .grid{grid-template-columns:1fr;}
+  .stat{padding-right:22px;margin-right:22px;}
+  .founder-card{padding:34px 26px;}
+  .hero{padding-top:calc(var(--nav-h) + 30px);}
+  .lightbox{padding:16px;}
+  .lb-close{top:10px;right:10px;}
+  .lb-info{padding:30px 24px;}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s !important;transition-duration:.001s !important;}
+  html{scroll-behavior:auto;}
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== 导航 ==================== -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#home" aria-label="贝屿创意设计工作室 首页">
+      <img src="https://aka.doubaocdn.com/s/42kyAtAsN3" alt="贝屿创意设计工作室 LOGO">
+      <span class="brand-name"><b>贝屿创意设计工作室</b><span>Beiyu Creative Design Studio</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" data-spy="home">首页</a></li>
+      <li><a href="#about" data-spy="about">关于</a></li>
+      <li><a href="#founders" data-spy="founders">创始人</a></li>
+      <li><a href="#works" data-spy="works">作品</a></li>
+      <li><a href="#contact" data-spy="contact">联系</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">合作洽谈</a>
+    <button class="burger" id="burger" aria-label="打开菜单"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="#home">首页</a>
+  <a href="#about">关于工作室</a>
+  <a href="#founders">创始人</a>
+  <a href="#works">作品</a>
+  <a href="#contact">联系</a>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero" id="home">
+  <div class="wrap hero-inner">
+    <div>
+      <span class="hero-eyebrow">武汉 · 建筑设计工作室</span>
+      <h1>以设计为<span class="accent">屿</span><br>把想象落成现实</h1>
+      <div class="hero-sub-en">Beiyu Creative Design Studio</div>
+      <p class="hero-desc">贝屿创意设计工作室，以<b>建筑</b>为基底、以<b>创意</b>为延伸。从方案构思、规划报审、施工图设计到现场配合，覆盖<b>民用建筑 · 工业建筑 · 市政设计 · 文旅设计 · 品牌VI</b>五大板块，为每一块场地找到它自己的形态。</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="#works">查看作品</a>
+        <a class="btn btn-line" href="#contact">联系合作</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="num">50<small>+</small></div><div class="lbl">参与项目</div></div>
+        <div class="stat"><div class="num">10<small>+</small></div><div class="lbl">方案主创</div></div>
+        <div class="stat"><div class="num">05</div><div class="lbl">业务板块</div></div>
+        <div class="stat"><div class="num">01</div><div class="lbl">全流程服务</div></div>
+      </div>
+    </div>
+    <div class="hero-art" id="heroArt" aria-hidden="true"></div>
+  </div>
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- ==================== 关于 ==================== -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="idx">01 / ABOUT</span>
+      <h2>关于<em>贝屿</em></h2>
+      <div class="sub">一间以建筑为基底、以创意为延伸的设计工作室</div>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <p>贝屿创意设计工作室（<b>BEIYU CREATIVE DESIGN STUDIO</b>）创立于武汉。主创团队深耕建筑设计领域多年，先后经历大型设计院的全流程历练与多类型项目的反复实践，能够独立承担从<b>方案构思、规划报审、施工图设计到后期服务</b>的项目完整周期。</p>
+        <p class="quote">我们相信，好的设计像一座岛屿——在喧嚣中自成一界，有清晰的边界，也有开放的岸线。</p>
+        <p>无论是大体量的产业园区，还是小而美的文旅空间，我们都以同样的严谨与敏感对待：先把场地读懂，再把想象落成图纸，最后让图纸变成可触摸的现实。业务覆盖<b>民用建筑、工业建筑、市政设计、文旅设计与品牌VI</b>五大板块，为业主提供一站式、全流程的创意设计与落地服务。</p>
+      </div>
+      <div class="cap-list reveal d1">
+        <div class="cap-row">
+          <span class="no">01</span>
+          <span><div class="nm">民用建筑设计</div><div class="en">Civil Architecture</div></span>
+          <span class="ds">酒店 · 办公 · 公寓 · 幼儿园 · 住宅</span>
+        </div>
+        <div class="cap-row">
+          <span class="no">02</span>
+          <span><div class="nm">工业建筑设计</div><div class="en">Industrial Architecture</div></span>
+          <span class="ds">厂房 · 产业园 · 厂前区 · 乳品/印刷/新材料</span>
+        </div>
+        <div class="cap-row">
+          <span class="no">03</span>
+          <span><div class="nm">市政设计</div><div class="en">Municipal Design</div></span>
+          <span class="ds">道路改造 · 景观提升 · 节点效果图</span>
+        </div>
+        <div class="cap-row">
+          <span class="no">04</span>
+          <span><div class="nm">文旅设计</div><div class="en">Cultural Tourism</div></span>
+          <span class="ds">民宿 · 自然牧场 · 文旅空间营造</span>
+        </div>
+        <div class="cap-row">
+          <span class="no">05</span>
+          <span><div class="nm">品牌 VI 设计</div><div class="en">Brand & VI</div></span>
+          <span class="ds">LOGO · 视觉识别系统 · 品牌IP · 文创</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 创始人 ==================== -->
+<section class="founders" id="founders">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="idx">02 / FOUNDERS</span>
+      <h2>创始人<em>介绍</em></h2>
+      <div class="sub">设计合伙 · 建筑与品牌两条主线</div>
+    </div>
+    <div class="founder-grid">
+      <article class="founder-card reveal">
+        <div class="avatar"><img src="https://aka.doubaocdn.com/s/8VTD8SR6zs" alt="聂政绩"></div>
+        <h3>聂政绩</h3>
+        <div class="role">Leo Nie · 主创建筑师 / 创始人</div>
+        <p class="desc">湖北工业大学建筑学本科、武汉理工大学建筑学硕士。曾任职于中国轻工业武汉设计工程有限责任公司五年，担任建筑设计方案主创，完整走过从方案构思、深化到施工图落地的全流程——从报规报建、专项配合到现场服务，每个环节都了然于胸，擅长在复杂约束中为业主争取最优解。此后转向文旅行业，专注文旅景观与营地的规划与设计，把建筑师的严谨带进自然的松弛里：从柿·Fu青年疗养院的自投自营，到 DunDun Park 自然牧场、南昌鱼目山营地的整体营造，他始终相信——好的设计要先读懂场地，再把想象落成可触摸的现实。</p>
+        <div class="tags"><span>建筑设计</span><span>方案全流程</span><span>施工图设计</span><span>文旅景观营地</span></div>
+      </article>
+      <article class="founder-card reveal d1">
+        <div class="avatar"><img src="https://aka.doubaocdn.com/s/GAdljDhhOU" alt="向贝"></div>
+        <h3>向贝</h3>
+        <div class="role">Xiang Bei · 联合创始人 / 品牌视觉</div>
+        <p class="desc">华中科技大学建筑学本硕。曾任职于中信建筑设计研究总院四年，担任建筑设计方案主创，完整涵盖方案设计与施工图设计的全过程，在大型公建与民用建筑的设计实践中沉淀了扎实的工程功底。现于贝屿负责品牌视觉创意与建筑、景观规划设计：专注VI视觉识别系统、品牌IP设计与文旅场景的视觉营造，让空间与品牌形成统一而鲜明的记忆点。从凤栖亭竹构的轻盈舒展，到小熊猫IP在园区里的生根发芽——从一枚LOGO到一套完整的视觉语言，她以细腻的设计感知为每个项目建立独特的气质，让建筑、景观与品牌互为表里。</p>
+        <div class="tags"><span>VI 视觉识别</span><span>品牌 IP</span><span>建筑景观设计</span><span>文旅场景营造</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 作品 ==================== -->
+<section class="works blueprint-soft" id="works">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="idx">03 / WORKS</span>
+      <h2>作品<em>案例</em></h2>
+      <div class="sub">民用建筑 · 工业建筑 · 市政设计 · 文旅设计 · 品牌VI</div>
+    </div>
+    <div class="filter-bar reveal" id="filterBar">
+      <button class="filter-btn active" data-cat="all">全部</button>
+      <button class="filter-btn" data-cat="tourism">文旅设计</button>
+      <button class="filter-btn" data-cat="civil">民用建筑</button>
+      <button class="filter-btn" data-cat="industrial">工业建筑</button>
+      <button class="filter-btn" data-cat="municipal">市政设计</button>
+      <button class="filter-btn" data-cat="vi">品牌VI</button>
+    </div>
+    <div class="grid" id="workGrid"></div>
+  </div>
+</section>
+
+<!-- ==================== 联系 ==================== -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="idx">04 / CONTACT</span>
+      <h2>联系<em>合作</em></h2>
+      <div class="sub">欢迎业主、同行与品牌方前来洽谈</div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-copy reveal">
+        <p>每一个项目，都值得被认真对待。无论你是需要一个新厂房、一栋办公楼、一场市政改造，还是一个从零开始的文旅空间或品牌形象——都可以从一次沟通开始。</p>
+        <p class="quote">把场地交给我们，把想象交给我们，其余的部分，交回给你。</p>
+        <p>我们提供从前期咨询、方案设计到落地配合的全流程服务，欢迎随时联系。</p>
+      </div>
+      <div class="reveal d1">
+        <dl class="contact-list">
+          <div class="contact-item"><dt>微信 / 电话</dt><dd><a href="tel:15071264976">150 7126 4976（微信与手机同号）</a></dd></div>
+          <div class="contact-item"><dt>电子邮箱</dt><dd><a href="mailto:373273486@qq.com">373273486@qq.com</a></dd></div>
+          <div class="contact-item"><dt>工作室地址</dt><dd>湖北省武汉市洪山区 · 万科城市之光</dd></div>
+          <div class="contact-item"><dt>合作范围</dt><dd>民用建筑 / 工业建筑 / 市政 / 文旅 / VI</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <a class="brand" href="#home">
+        <img src="https://aka.doubaocdn.com/s/6zSfDaL4zg" alt="贝屿 LOGO">
+        <span class="brand-name"><b style="color:var(--paper)">贝屿创意设计工作室</b><span style="color:rgba(245,244,239,.5)">Beiyu Creative Design Studio</span></span>
+      </a>
+      <div style="text-align:right">
+        <p>© 2026 贝屿创意设计工作室 · 保留所有权利</p>
+        <p class="en">Design an island, build a world.</p>
+      </div>
+    </div>
+  </footer>
+</section>
+
+<!-- ==================== 灯箱 ==================== -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="作品详情">
+  <button class="lb-close" id="lbClose" aria-label="关闭">✕</button>
+  <button class="lb-nav prev" id="lbPrev" aria-label="上一个">‹</button>
+  <div class="lb-frame">
+    <div class="lb-media">
+      <img id="lbImg" src="" alt="">
+      <div class="lb-thumbs" id="lbThumbs"></div>
+    </div>
+    <div class="lb-info">
+      <span class="lb-cat" id="lbCat"></span>
+      <h3 id="lbTitle"></h3>
+      <dl class="lb-meta" id="lbMeta"></dl>
+      <p class="lb-desc" id="lbDesc"></p>
+      <div class="lb-link" id="lbLink"></div>
+    </div>
+  </div>
+  <button class="lb-nav next" id="lbNext" aria-label="下一个">›</button>
+  <span class="lb-counter" id="lbCounter"></span>
+</div>
+
+<button class="to-top" id="toTop" aria-label="返回顶部">↑</button>
+
+<script>
+/* ============================================================
+   ★★★ 编辑区 ★★★
+   下面的 PROJECTS / 文案都可以直接修改：
+   - category: civil 民用建筑 / industrial 工业建筑 / municipal 市政设计 / tourism 文旅设计 / vi 品牌VI
+   - images: 图片地址列表（把新图片上传后替换地址即可）
+   - images 留空 [] 时，卡片会显示一张"岛屿"插画占位图
+   ============================================================ */
+var PROJECTS = [
+  {
+    category:"civil",
+    title:"桂林洁伶总部经济商务中心项目",
+    meta:[["业主","桂林洁伶"],["地点","广西 · 桂林"],["时间","2022 — 2024"],["状态","方案设计"]],
+    desc:"涵盖办公、酒店、公寓等多业态的总部经济综合体。项目历时两年余，期间根据业主需求不断推演建筑风格，先后形成新中式、现代简约、商业裙楼与拱形艺术等多种方案，在多变的需求中保持对城市界面的审慎回应。",
+    images:["https://aka.doubaocdn.com/s/oVB4mOiFMy","https://aka.doubaocdn.com/s/VNXV2ETiOQ","https://aka.doubaocdn.com/s/oxnHq7VAGc","https://aka.doubaocdn.com/s/HC06yok41K"]
+  },
+  {
+    category:"civil",
+    title:"广德市实验小学北校区附属幼儿园",
+    meta:[["项目类型","投标项目 · 主创"],["地点","安徽 · 广德"],["状态","方案设计（获第三名）"]],
+    desc:"以「梦乐溪谷」为设计概念——流动丝带状的共享游戏空间，山谷体量的教室空间，让活动场地与景观最大化。作为主创在仅有的14天内独立完成整套投标文件。",
+    images:["https://aka.doubaocdn.com/s/HQ40uNMbf3","https://aka.doubaocdn.com/s/6atVeUhmTP","https://aka.doubaocdn.com/s/DvmO9cjcx3"]
+  },
+  {
+    category:"civil",
+    title:"明光仓里咖啡 · 旧厂房改造",
+    meta:[["类型","旧建筑改造 · 咖啡文旅空间"],["地点","安徽 · 明光"],["状态","已建成运营"]],
+    desc:"以旧厂房为载体的咖啡文旅空间改造：保留木质桁架屋顶与工业结构记忆，通过红色点缀、农具陈设、壁炉与蒲团等元素，植入咖啡休闲与社区公共功能，让工业风与乡村温馨感在同一空间内交融，为老建筑注入新的日常活力。",
+    images:["https://aka.doubaocdn.com/s/FVKHpBwukI","https://aka.doubaocdn.com/s/MTMNEwgvwL","https://aka.doubaocdn.com/s/FBU8gNuxn4"]
+  },
+  {
+    category:"industrial",
+    title:"智能化绿色数字印刷研发生产基地",
+    meta:[["业主","湖北恒泰印务有限公司"],["地点","武汉市 · 江夏区"],["时间","2022 — 2024"],["状态","已建成"]],
+    desc:"一人完成从方案沟通、规划报审、施工图设计到后期服务的全流程。设计包括一栋四层丙类生产车间（一至三层生产、四层办公）与一栋15层宿舍楼（底层架空，二三层为食堂及活动室）。在用地狭小的条件下将容积率做到2.2，为业主争取最大利益。",
+    images:["https://aka.doubaocdn.com/s/7qVgOpLBR8","https://aka.doubaocdn.com/s/6yrocz8Itc","https://aka.doubaocdn.com/s/TWsG3cNIKt"]
+  },
+  {
+    category:"industrial",
+    title:"汽车内饰件生产项目",
+    meta:[["业主","武汉通领沃德有限公司"],["地点","武汉市 · 汉南区"],["时间","2022 — 2023"],["状态","已建成"]],
+    desc:"全流程独立完成。设计包括一栋两层生产车间、一栋四层宿舍楼（底层为食堂及活动室）、一栋甲类危险品仓库与两栋门房，合理组织厂区流线与功能分区。",
+    images:["https://aka.doubaocdn.com/s/XMxJvU3kMn","https://aka.doubaocdn.com/s/1wwve5Oie0","https://aka.doubaocdn.com/s/juLzrkplJV","https://aka.doubaocdn.com/s/9tCe2kAZBu","https://aka.doubaocdn.com/s/Rl7MHklh3U"]
+  },
+  {
+    category:"industrial",
+    title:"西安百跃羊奶粉生产基地",
+    meta:[["业主","西安百跃集团"],["地点","西安市 · 阎良区"],["时间","2023 — 2024"],["状态","方案阶段"]],
+    desc:"乳制品生产基地整体方案设计，统筹厂区生产、仓储与配套建筑的空间组织与立面表达。",
+    images:["https://aka.doubaocdn.com/s/2Zrt4753W2","https://aka.doubaocdn.com/s/JXy4nfhJyw","https://aka.doubaocdn.com/s/moJSzToA2H"]
+  },
+  {
+    category:"industrial",
+    title:"君乐宝华南乳业全产业链一体化基地",
+    meta:[["业主","君乐宝"],["地点","广东省 · 江门市"],["时间","2023 — 2024"],["状态","方案阶段"]],
+    desc:"面向全产业链一体化的大型乳业基地，从工艺流线到建筑形象进行整体性方案设计。",
+    links:[{text:"观看项目视频",url:"https://weixin.qq.com/sph/A24bxbCFz9"}],
+    images:["https://aka.doubaocdn.com/s/IlGTfHMXZb","https://aka.doubaocdn.com/s/JAMEoaD3JQ","https://aka.doubaocdn.com/s/k8Zf80Mhfq","https://aka.doubaocdn.com/s/WHgfFGhUcw","https://aka.doubaocdn.com/s/Nt0BYPXJJ3","https://aka.doubaocdn.com/s/1YTklM71IT"]
+  },
+  {
+    category:"industrial",
+    title:"通城研磨产业回归创业（孵化）园",
+    meta:[["业主","通城经开投资有限公司"],["地点","咸宁市 · 通城县"]],
+    desc:"产业回归创业孵化园区，围绕研磨产业组织厂房、办公与配套空间，营造宜业宜人的园区环境。",
+    images:["https://aka.doubaocdn.com/s/ifPuxwwKgu","https://aka.doubaocdn.com/s/lVPVoqxo11"]
+  },
+  {
+    category:"industrial",
+    title:"金沙河集团总部基地概念方案",
+    meta:[["业主","金沙河集团"],["地点","河北省 · 邢台市"],["时间","2023"],["状态","概念方案（未中标）"]],
+    desc:"以临水环形主体建筑统领园区，围绕加工车间组织污水处理、展示接待中心、消防站、多功能厅、专家楼、办公研发质检、宿舍、食堂等功能分区，形成高效而具标志性的总部园区形象。",
+    images:["https://aka.doubaocdn.com/s/HZqHFwwrzs","https://aka.doubaocdn.com/s/Uec5Xbpbf8","https://aka.doubaocdn.com/s/OyZVpKOYpW"]
+  },
+  {
+    category:"industrial",
+    title:"承德北牧乳业迁址扩建项目",
+    meta:[["业主","承德北牧乳业有限责任公司"],["地点","河北省 · 承德市"]],
+    desc:"乳业企业迁址扩建项目，涵盖生产厂房与厂前区配套建筑的整体方案设计。",
+    images:["https://aka.doubaocdn.com/s/Y6evPabKnV","https://aka.doubaocdn.com/s/tucGOUHd6Y","https://aka.doubaocdn.com/s/fUZEPoLE77"]
+  },
+  {
+    category:"industrial",
+    title:"山东阳昇双创产业园 2#车间设计",
+    meta:[["地点","山东省 · 聊城市"],["时间","2024 — 2025"],["状态","在建"]],
+    desc:"在已有项目用地内新建乳品生产车间，满足日产能300吨的工艺生产线需求：前部为框架结构参观展览及办公研发区域，后方主要为钢结构生产车间。",
+    images:["https://aka.doubaocdn.com/s/3jUYcJbxDM","https://aka.doubaocdn.com/s/Sq5pNV9QgS"]
+  },
+  {
+    category:"industrial",
+    title:"威兴蓝新材料项目",
+    meta:[["地点","徐州市 · 沛县"],["时间","2023 — 2025"],["状态","在建"]],
+    desc:"新材料产业园区整体方案设计，统筹生产厂房、办公与配套空间的规划与建筑形象。",
+    images:["https://aka.doubaocdn.com/s/V9o6UQlNRZ","https://aka.doubaocdn.com/s/oZLpF6pjnh","https://aka.doubaocdn.com/s/skVf7TbVCM"]
+  },
+  {
+    category:"industrial",
+    title:"青岛可颂食品工厂",
+    meta:[["类型","食品工厂 · 方案设计"],["地点","山东 · 青岛"],["状态","方案设计"]],
+    desc:"位于青岛的可颂食品工厂项目：以多层生产厂房为主体，统筹车间工艺分区、办公配套与厂前区形象，从人视、街道到鸟瞰多视角呈现现代食品工厂的完整形象与环境关系。",
+    images:["https://aka.doubaocdn.com/s/LqVXI4xlyZ","https://aka.doubaocdn.com/s/RzgMVtLJDu","https://aka.doubaocdn.com/s/yJJ53R83ED","https://aka.doubaocdn.com/s/mKDj7PscwD","https://aka.doubaocdn.com/s/8JYUyLpaiU"]
+  },
+  {
+    category:"municipal",
+    title:"市政道路改造效果图系列",
+    meta:[["内容","过街通道 · 道路景观提升"],["地点","武汉市"],["时间","2018 年参与"]],
+    desc:"东湖路过街通道、喻家湖路华师附中段、光谷大道创业街路口等市政道路改造项目的效果图制作，涵盖道路铺装、绿化布置与设施布局的景观提升设计，以实景对比方式呈现改造前后效果。",
+    images:["https://aka.doubaocdn.com/s/rGthJMRwVx","https://aka.doubaocdn.com/s/f7TVGBT80P","https://aka.doubaocdn.com/s/4ZKoyLRWjn","https://aka.doubaocdn.com/s/unslday2ZA"]
+  },
+  {
+    category:"municipal",
+    title:"惠州仲恺惠环街道城市更新",
+    meta:[["类型","城市更新 · 街区改造"],["地点","广东 · 惠州（仲恺高新区）"],["面积","约 5.16 万㎡"],["状态","方案设计"]],
+    desc:"面向惠州仲恺惠环街道的片区城市更新方案：对老旧街巷与闲置空间进行建筑修缮、立面整治、绿化美化与道路景观重塑，并植入餐饮、休闲等新业态，将杂乱老旧的城郊街区转变为整洁雅致、充满烟火气的休闲街道。",
+    images:["https://aka.doubaocdn.com/s/79gVACzeXJ","https://aka.doubaocdn.com/s/EsWK8ceUCN","https://aka.doubaocdn.com/s/HqcBR7ehSo","https://aka.doubaocdn.com/s/Tt6agfLCHj","https://aka.doubaocdn.com/s/UemXUiFBvR"]
+  },
+  {
+    category:"tourism",
+    title:"柿·Fu青年疗养院",
+    meta:[["类型","民宿 · 自建房改造运营"],["地点","湖北 · 随州"],["状态","创始人自投自营"]],
+    desc:"创始人将老家自建房自行投资、设计改造并运营的青年疗养院民宿。以「柿」为名的在地品牌：建筑外观简洁现代，室内以藤编、木质、棉麻等天然材质营造松弛治愈的氛围——自然风卧室、柴火灶厨房、侘寂风公区，甚至配有一间电竞房，让「疗养」既可以是慢下来，也可以是玩起来。",
+    images:["https://aka.doubaocdn.com/s/dufgF6HX3i","https://aka.doubaocdn.com/s/8hgj7MQCgN","https://aka.doubaocdn.com/s/Yu4FY6fnMf","https://aka.doubaocdn.com/s/t2wKif9x7O","https://aka.doubaocdn.com/s/oIUM5205Wu"]
+  },
+  {
+    category:"tourism",
+    title:"DunDun Park 自然牧场 · 南昌磨盘山",
+    meta:[["类型","文旅空间 · 小熊猫主题"],["地点","江西 · 南昌（磨盘山森林公园）"],["状态","已开业运营"]],
+    desc:"坐落于南昌磨盘山森林公园的小熊猫主题自然牧场：草原牧场、无动力乐园、森林市集与「RED PANDA」小熊猫主题咖啡一应俱全。从园区入口的立体字标、云朵秋千与草坪剧场，到配套的IP导视系统，整体营造出自然野趣、松弛治愈的亲子休闲场景，开园即成为城市微度假的热门目的地。",
+    links:[{text:"查看小红书笔记",url:"https://link.wtturl.cn/?target=https%3A%2F%2Fwww.xiaohongshu.com%2Fdiscovery%2Fitem%2F6ac30ab5000000001c01dcc2%3Fsource%3Dwebshare%26xhsshare%3Dpc_web%26xsec_token%3DABrPvWcQDF6epF8fDRzR06f5ZMk9Egio2CRdtaG_WUYX0%3D%26xsec_source%3Dpc_share&scene=im&aid=582478&lang=zh"}],
+    images:["https://aka.doubaocdn.com/s/tQfYsq4rTc","https://aka.doubaocdn.com/s/DehtteqcTj","https://aka.doubaocdn.com/s/JJTUIAX8Dr"]
+  },
+  {
+    category:"tourism",
+    title:"南昌鱼目山泰式烧烤营地",
+    meta:[["类型","文旅营地 · 泰式烧烤"],["地点","江西 · 南昌（鱼目山）"],["状态","方案设计"]],
+    desc:"坐落于南昌鱼目山的泰式烧烤主题营地：以茅草顶木质三角亭、高脚木屋与木栈道构筑东南亚风情，点缀大象雕塑、佛像摆件、灯笼与布艺装饰，营造野奢松弛的度假氛围。以低成本、轻量化方式植入泰式美陈打卡装置——从光影斑驳的休闲区、草坪活动区到建筑入口，每个角落都自带网红拍照属性。空间强调「小而美」的尺度感，不求宏大，而以高级的质感、通透的光影与热带植被的细节打动人心。",
+    images:["https://aka.doubaocdn.com/s/LmSfPdliO7","https://aka.doubaocdn.com/s/KoIUKT2jGI","https://aka.doubaocdn.com/s/MiZgBio67v","https://aka.doubaocdn.com/s/hQMIx1q44g","https://aka.doubaocdn.com/s/VUG0LiTqMA","https://aka.doubaocdn.com/s/JrfbNrH2l1","https://aka.doubaocdn.com/s/J7pWZDo5QC"]
+  },
+  {
+    category:"tourism",
+    title:"凤栖亭 · 武汉有田生态田园",
+    meta:[["类型","竹构景观亭"],["地点","武汉市 · 江夏区"],["时间","2020"],["状态","已建成"]],
+    desc:"位于武汉江夏有田生态田园的竹构凉亭，华中科技大学匠作工作室作品，贝屿联合创始人向贝参与设计。设计灵感源自《诗经·小雅》「如鸟斯革，如翚斯飞」，以如凤凰展翅般轻盈舒展的拱形竹构呼应楚地图腾，并借鉴「天圆地方」的东方哲思，拱形穹窿覆盖四方地面。选用湖南楠竹经热弯工艺塑形、钢构件锚固，拱结构少材成大跨；顶棚竹篾百叶有意不铺满，让丝丝光线与剪剪风穿过亭间，可坐看云起。面宽6米、进深9米、高5米，可容纳一个班级开展自然课堂，是传统竹艺与现代结构融合的典范。",
+    links:[{text:"查看项目详情 · 谷德设计网",url:"https://www.gooood.cn/fengqi-pavilion-jiangzuo-studio.htm"}],
+    images:["https://aka.doubaocdn.com/s/qauXsunQG5","https://aka.doubaocdn.com/s/bDVuJGR3Cj","https://aka.doubaocdn.com/s/8Srop4S8Fy","https://aka.doubaocdn.com/s/Y3znDYwiWV","https://aka.doubaocdn.com/s/0I8o8tuc5F"]
+  },
+  {
+    category:"vi",
+    title:"贝屿视觉识别系统",
+    meta:[["内容","LOGO 与品牌基础识别"],["状态","已应用"]],
+    desc:"「贝屿」中文标识与「x & N DESIGN」的组合设计：以波浪曲线与几何折线对话，柔与刚、品牌与设计并置，构成简洁现代、易于识别的视觉核心，是贝屿品牌体系的起点。",
+    images:["https://aka.doubaocdn.com/s/IKqUFpP4a7","https://aka.doubaocdn.com/s/42kyAtAsN3"]
+  },
+  {
+    category:"vi",
+    title:"小熊猫 IP 形象 · 品牌应用",
+    meta:[["内容","RED PANDA 小熊猫IP · 导览 · 三折页 · 文创"],["状态","已应用"]],
+    desc:"为 DunDun Park 自然牧场打造的小熊猫品牌IP形象：戴墨镜、端咖啡的「RED PANDA」贯穿园区导视系统、宣传物料与文创产品——从手绘导览地图、入口指示海报、三折页宣传页，到「Mountain Leisure 山野休闲系列」小熊猫毛绒钥匙扣盲盒文创，IP形象渗透进空间体验与品牌周边的每个触点，成为园区最具辨识度的视觉符号。",
+    images:["https://aka.doubaocdn.com/s/SiF9yzZmOP","https://aka.doubaocdn.com/s/2qM1aPVSh2","https://aka.doubaocdn.com/s/u1gQ3xdyYG","https://aka.doubaocdn.com/s/fz2vBgmlTT","https://aka.doubaocdn.com/s/hGneUvdTJ2"]
+  }
+];
+
+var CAT_NAMES = {civil:"民用建筑",industrial:"工业建筑",municipal:"市政设计",tourism:"文旅设计",vi:"品牌VI"};
+var CAT_EN    = {civil:"CIVIL",industrial:"INDUSTRIAL",municipal:"MUNICIPAL",tourism:"TOURISM",vi:"BRAND & VI"};
+var CAT_ORDER = {tourism:0,civil:1,industrial:2,municipal:3,vi:4};
+
+/* ============================================================
+   岛屿等高线 SVG（签名元素：呼应"贝屿"与LOGO波线）
+   ============================================================ */
+function islandPath(cx, cy, r, seed){
+  var pts = [];
+  var n = 64;
+  for(var i=0;i<=n;i++){
+    var a = (i/n)*Math.PI*2;
+    var wave = Math.sin(a*3 + seed*2.1)*0.07 + Math.sin(a*5 + seed*1.3)*0.045 + Math.sin(a*7+seed)*0.025;
+    var rr = r * (1 + wave);
+    pts.push((cx + Math.cos(a)*rr).toFixed(1) + "," + (cy + Math.sin(a)*rr*0.82).toFixed(1));
+  }
+  return "M" + pts.join(" L") + " Z";
+}
+function buildIslandArt(el){
+  var svgNS = "http://www.w3.org/2000/svg";
+  var svg = document.createElementNS(svgNS,"svg");
+  svg.setAttribute("viewBox","0 0 520 560");
+  var rings = [
+    {r:235, seed:0.4, cls:"ink",  delay:0},
+    {r:195, seed:1.9, cls:"",     delay:120},
+    {r:152, seed:0.8, cls:"ink",  delay:240},
+    {r:108, seed:2.7, cls:"",     delay:360},
+    {r:62,  seed:1.5, cls:"ink",  delay:480}
+  ];
+  var len = rings.length;
+  for(var k=0;k<len;k++){
+    var g = rings[k];
+    var path = document.createElementNS(svgNS,"path");
+    var d = islandPath(260, 268, g.r, g.seed);
+    path.setAttribute("d", d);
+    path.setAttribute("class", "ring" + (g.cls?" ink":""));
+    var total = 2*Math.PI*g.r*1.2;
+    path.setAttribute("stroke-dasharray", total);
+    path.setAttribute("stroke-dashoffset", total);
+    svg.appendChild(path);
+    (function(p, t, dl){
+      setTimeout(function(){ p.style.transition = "stroke-dashoffset 1.6s cubic-bezier(.22,.61,.36,1)"; p.style.strokeDashoffset = 0; }, 300 + dl);
+    })(path, total, g.delay);
+  }
+  el.appendChild(svg);
+  var mark = document.createElement("div");
+  mark.className = "mark";
+  mark.innerHTML = '<img src="https://aka.doubaocdn.com/s/42kyAtAsN3" alt="贝屿 LOGO"><p>Design an island · Build a world</p>';
+  el.appendChild(mark);
+}
+
+/* ============================================================
+   占位插画（文旅/VI 无图作品）
+   ============================================================ */
+function placeholderSVG(){
+  var paths = "";
+  var rings = [[0.3,150],[1.7,112],[0.9,74],[2.5,40]];
+  for(var k=0;k<rings.length;k++){
+    paths += '<path d="' + islandPath(260,235,rings[k][1],rings[k][0]) + '" fill="none" stroke="rgba(42,92,176,.5)" stroke-width="1.4"/>';
+  }
+  return '<svg viewBox="0 0 520 470" aria-hidden="true">' + paths + '</svg>';
+}
+
+/* ============================================================
+   渲染作品网格
+   ============================================================ */
+var currentFilter = "all";
+var grid = document.getElementById("workGrid");
+function renderGrid(filter){
+  grid.innerHTML = "";
+  var list = PROJECTS.filter(function(p){ return filter==="all" || p.category===filter; }).sort(function(a,b){ return (CAT_ORDER[a.category]!==undefined?CAT_ORDER[a.category]:9)-(CAT_ORDER[b.category]!==undefined?CAT_ORDER[b.category]:9); });
+  if(!list.length){ grid.innerHTML = '<div class="grid-empty">该板块作品整理中，敬请期待</div>'; return; }
+  list.forEach(function(p, i){
+    var card = document.createElement("article");
+    card.className = "card";
+    card.style.animationDelay = (i*0.06) + "s";
+    card.setAttribute("data-cat", p.category);
+    var media = '<div class="card-media">';
+    if(p.images && p.images.length){
+      media += '<img loading="lazy" src="' + p.images[0] + '" alt="' + p.title + '">';
+      media += '<span class="card-count">' + p.images.length + ' 图</span>';
+    }else{
+      media += '<div class="ph">' + placeholderSVG() + '</div>';
+    }
+    media += '<span class="card-tag">' + CAT_NAMES[p.category] + '</span></div>';
+    var metaHTML = "";
+    p.meta.slice(0,3).forEach(function(m){ metaHTML += '<span><b>' + m[0] + '</b> ' + m[1] + '</span>'; });
+    card.innerHTML = media +
+      '<div class="card-body"><h3>' + p.title + '</h3>' +
+      '<div class="card-meta">' + metaHTML + '</div>' +
+      '<span class="card-go">查看详情</span></div>';
+    card.addEventListener("click", function(){ openLightbox(p); });
+    grid.appendChild(card);
+  });
+}
+
+/* ============================================================
+   筛选
+   ============================================================ */
+document.getElementById("filterBar").addEventListener("click", function(e){
+  var btn = e.target.closest(".filter-btn");
+  if(!btn) return;
+  document.querySelectorAll(".filter-btn").forEach(function(b){ b.classList.remove("active"); });
+  btn.classList.add("active");
+  currentFilter = btn.getAttribute("data-cat");
+  renderGrid(currentFilter);
+});
+
+/* ============================================================
+   灯箱
+   ============================================================ */
+var lb = document.getElementById("lightbox");
+var lbImg = document.getElementById("lbImg");
+var lbThumbs = document.getElementById("lbThumbs");
+var lbTitle = document.getElementById("lbTitle");
+var lbCat = document.getElementById("lbCat");
+var lbMeta = document.getElementById("lbMeta");
+var lbDesc = document.getElementById("lbDesc");
+var lbCounter = document.getElementById("lbCounter");
+var currentIndex = 0, currentList = [];
+
+function openLightbox(proj){
+  currentList = proj.images && proj.images.length ? proj.images : [""];
+  currentIndex = 0;
+  lbTitle.textContent = proj.title;
+  lbCat.textContent = CAT_NAMES[proj.category] + " · " + CAT_EN[proj.category];
+  lbMeta.innerHTML = "";
+  proj.meta.forEach(function(m){
+    lbMeta.innerHTML += '<dt>' + m[0] + '</dt><dd>' + m[1] + '</dd>';
+  });
+  lbDesc.textContent = proj.desc;
+  var lbLink = document.getElementById("lbLink");
+  var links = proj.links || (proj.link ? [{text:"查看详情",url:proj.link}] : []);
+  if(links.length){
+    var html = "";
+    links.forEach(function(l){
+      html += '<a class="lb-link-btn" href="' + l.url + '" target="_blank" rel="noopener">' + l.text + '</a>';
+    });
+    lbLink.innerHTML = html;
+  }else{
+    lbLink.innerHTML = "";
+  }
+  lbThumbs.innerHTML = "";
+  if(proj.images && proj.images.length){
+    proj.images.forEach(function(src, i){
+      var t = document.createElement("img");
+      t.src = src; t.alt = proj.title + " 图" + (i+1);
+      t.addEventListener("click", function(e){ e.stopPropagation(); showLbImage(i); });
+      lbThumbs.appendChild(t);
+    });
+  }
+  showLbImage(0);
+  lb.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function showLbImage(i){
+  currentIndex = i;
+  var src = currentList[i];
+  if(src){
+    lbImg.src = src;
+    lbImg.style.display = "block";
+    lbImg.alt = "";
+  }else{
+    lbImg.style.display = "none";
+  }
+  Array.prototype.forEach.call(lbThumbs.children, function(t, ti){
+    t.classList.toggle("active", ti===i);
+  });
+  lbCounter.textContent = (currentList.length ? (i+1) + " / " + currentList.length : "插画占位");
+}
+function closeLightbox(){
+  lb.classList.remove("open");
+  document.body.style.overflow = "";
+}
+function lbStep(dir){
+  if(!currentList.length) return;
+  var n = currentList.length;
+  showLbImage((currentIndex + dir + n) % n);
+}
+document.getElementById("lbClose").addEventListener("click", closeLightbox);
+document.getElementById("lbPrev").addEventListener("click", function(){ lbStep(-1); });
+document.getElementById("lbNext").addEventListener("click", function(){ lbStep(1); });
+lb.addEventListener("click", function(e){ if(e.target === lb) closeLightbox(); });
+document.addEventListener("keydown", function(e){
+  if(!lb.classList.contains("open")) return;
+  if(e.key === "Escape") closeLightbox();
+  if(e.key === "ArrowLeft") lbStep(-1);
+  if(e.key === "ArrowRight") lbStep(1);
+});
+
+/* ============================================================
+   导航 / 滚动高亮 / 返回顶部
+   ============================================================ */
+var nav = document.getElementById("nav");
+var toTop = document.getElementById("toTop");
+var sections = ["home","about","founders","works","contact"];
+function onScroll(){
+  var y = window.scrollY;
+  nav.classList.toggle("scrolled", y > 20);
+  toTop.classList.toggle("show", y > 600);
+  var spy = "home";
+  sections.forEach(function(id){
+    var el = document.getElementById(id);
+    if(el && el.offsetTop - 120 <= y) spy = id;
+  });
+  document.querySelectorAll(".nav-links a").forEach(function(a){
+    a.classList.toggle("active", a.getAttribute("data-spy") === spy);
+  });
+}
+window.addEventListener("scroll", onScroll, {passive:true});
+onScroll();
+toTop.addEventListener("click", function(){ window.scrollTo({top:0, behavior:"smooth"}); });
+
+/* 移动端菜单 */
+var burger = document.getElementById("burger");
+var mobileMenu = document.getElementById("mobileMenu");
+burger.addEventListener("click", function(){
+  burger.classList.toggle("open");
+  mobileMenu.classList.toggle("open");
+});
+mobileMenu.querySelectorAll("a").forEach(function(a){
+  a.addEventListener("click", function(){
+    burger.classList.remove("open");
+    mobileMenu.classList.remove("open");
+  });
+});
+
+/* ============================================================
+   滚动显现
+   ============================================================ */
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(en){
+    if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
+  });
+},{threshold:0.12});
+document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+
+/* ============================================================
+   初始化
+   ============================================================ */
+buildIslandArt(document.getElementById("heroArt"));
+renderGrid("all");
+</script>
+</body>
+</html>
